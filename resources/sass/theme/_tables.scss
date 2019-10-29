@@ -1,0 +1,11 @@
+table ion-icon.check-icon {
+    font-size: 200%;
+}
+
+table ion-icon.check-icon[name="ios-checkmark"] {
+    color: $green;
+}
+
+table ion-icon.check-icon[name="ios-close"] {
+    color: $red;
+}

@@ -1,0 +1,53 @@
+#app {
+    box-shadow: inset 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+    padding: 3rem 0 0 0;
+}
+
+footer {
+    background-color: $body-bg;
+    padding: 16px 32px 16px 16px;
+    color: lighten(black, 40%);
+}
+
+.panel {
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .panel {
+        padding: 0 2rem;
+    }
+}
+
+.sub-sections-list {
+    max-width: 140px;
+}
+
+.panel > div.d-flex > .sub-sections-list {
+    margin-top: 2.6rem;
+    margin-right: 2rem;
+}
+
+.panel > div.d-flex > .sub-sections-list > ul.links-list {
+    list-style-type: none;
+    padding-left: 0.8rem;
+}
+
+div.sub-sections-list > ul > li > a.btn.btn-link {
+    text-align: left;
+    padding: 0 0 1rem 0;
+}
+
+.panel > div.d-flex > .panel-content {
+    margin-top: 1.8rem;
+    padding: 2rem 2.6rem;
+    background-color: lighten($body-bg, 100%);
+}
+
+hr {
+    margin-top: 3rem;
+}
+
+.avatar > img {
+    height: 48px;
+}

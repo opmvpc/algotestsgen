@@ -1,0 +1,24 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+// Variables
+@import 'variables';
+
+// Sidebar
+@import 'theme/sidebar';
+
+// Toastr
+@import "~toastr/toastr";
+
+// Swal
+// @import 'vendor/swal';
+
+// Datatables
+// @import '../../node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Custom
+@import 'custom';

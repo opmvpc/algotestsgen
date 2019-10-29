@@ -1,0 +1,21 @@
+// Toaster notifications
+#toast-container > div {
+    opacity: 1;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.toast-success {
+    background-color: lighten($green, 15) !important;
+}
+
+.toast-success .toast-progress {
+    background-color: darken($green, 20);
+}
+
+.toast-error {
+    background-color: lighten($red, 15) !important;
+}
+
+.toast-error .toast-progress {
+    background-color: darken($red, 20);
+}

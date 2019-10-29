@@ -1,0 +1,79 @@
+.brand {
+    font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .brand {
+        margin-left: 1rem;
+    }
+}
+
+h1, h2, h3, h4, h5, h6, .brand, .sidebar-wrapper, table > thead > tr > th, a, .btn {
+    font-family: $titles-font-family-sans-serif;
+}
+
+a, .btn {
+    font-weight: 600 !important;
+    letter-spacing: 0.0625em;
+}
+
+h1, h2, h3, h4, h5, h6, .brand, .sidebar-wrapper, table > thead > tr > th {
+    font-weight: 800 !important;
+    letter-spacing: 0.050em;
+}
+
+h1, h2, h3, h4, h5, h6, table > thead > tr > th, label {
+    color: lighten(black, 40%);
+}
+
+.panel h2 {
+    color: lighten(black, 50%);
+    font-size: 1.6rem;
+}
+
+.panel h2 > ion-icon {
+    position: relative;
+    top: 3px;
+    color: lighten(black, 70%);
+}
+
+.panel > div.d-flex > .panel-content > h3 {
+    font-size: 1.3rem;
+    padding-top: 1.2rem;
+    padding-bottom: 0.8rem;
+}
+
+.panel > div.d-flex > .panel-content > h3:first-of-type {
+    padding-top: 0.5rem;
+}
+
+.panel > div.d-flex > .panel-content h4 {
+    font-size: 1.05rem;
+    color: lighten(black, 25%);
+    padding-top: 1.4rem;
+    padding-bottom: 0.4rem;
+}
+
+.panel > div.d-flex > .panel-content h5 {
+    font-size: 0.95rem;
+    color: lighten(black, 15%);
+    padding-top: 1rem;
+    padding-bottom: 0.3rem;
+}
+
+code {
+    background: linear-gradient(to right, lighten($green, 20%), lighten($yellow, 20%));
+    color: darken($green, 70%) !important;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+}
+
+pre.hljs {
+    padding: 20px 20px;
+    border-radius: 5px;
+    margin-bottom: 1.4rem;
+}
+
+p {
+    margin-bottom: 0.5rem;
+}

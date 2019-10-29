@@ -1,0 +1,89 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+body {
+  overflow-x: hidden;
+}
+
+#menu-toggle > ion-icon {
+    font-size: 1.5rem;
+    position: relative;
+    top: 3px;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -8rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  height: 60px;
+  background-image: url('https://www.unamur.be/logo.png');
+  background-position: center;
+  background-size: 3rem;
+  background-repeat: no-repeat;
+}
+
+#sidebar-wrapper .list-group {
+  width: 8rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+#sidebar-wrapper a.list-group-item.active {
+    background-color: lighten($blue,40%) !important;
+    color: $blue;
+}
+
+#sidebar-wrapper > div.list-group.list-group-flush > a {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+#sidebar-wrapper > div.list-group.list-group-flush > a > div > ion-icon {
+  color: lighten($color: black, $amount: 70);
+  font-size: 250% !important;
+  position: relative;
+}
+
+#sidebar-wrapper > div.list-group.list-group-flush > a.list-group-item.active > div > ion-icon {
+  color: lighten($color: $blue, $amount: 25) !important;
+}
+
+#page-content-wrapper > nav > button.btn-more > ion-icon {
+  font-size: 180% !important;
+  color: lighten(black, 60);
+  position: relative;
+  top: 4px;
+}
+
+#page-content-wrapper > nav > button.btn-more {
+  padding: 0px;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -8rem;
+  }
+}
