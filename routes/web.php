@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('home', 'HomeController@index')->name('home');
+Route::get('home/dl', 'HomeController@downloadZip')->name('home.dl');
 
 Route::resource('tests', 'TestController');
 

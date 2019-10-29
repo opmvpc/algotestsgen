@@ -20,5 +20,11 @@ class AdminController extends Controller
     public function genererCode()
     {
         $estOk = Generateur::makeZip();
+
+        if ($estOk) {
+            return redirect()->back()->withOk('Les fichiers ont été générés');
+        }
+
+        return redirect()->back()->withOk('Une erreur est survenue');
     }
 }

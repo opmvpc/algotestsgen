@@ -3,6 +3,8 @@
 namespace App\GenerateurCode;
 
 use App\Models\Test;
+use ZanySoft\Zip\Zip;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 final class Generateur
@@ -12,6 +14,9 @@ final class Generateur
 
     public static function makeZip(): bool
     {
+        File::delete(public_path('java.zip'));
+        Storage::deleteDirectory('test');
+
         $tests = Test::with(['user', 'probleme'])
             ->get()
             ->mapToGroups(function ($item, $key) {
@@ -25,7 +30,6 @@ final class Generateur
             Storage::makeDirectory($problemDirectory);
 
             $probleme->each(function ($test) use ($problemDirectory) {
-                // dump($test);
                 // 1. créer fichiers
                 $fileName = $problemDirectory . $test->nom . '.txt';
                 Storage::put($fileName, $test->body);
@@ -34,10 +38,16 @@ final class Generateur
             // 2. créer code java
             $code = view('java.test_template', compact('key', 'probleme'))->render();
             Storage::put(self::$javaDir. 'Algo2Problem'.$key.'Test.java', $code);
-            // dd($code);
         });
 
+        // Ajouter fichier log4j
+        Storage::copy('generateur/log4j2-test.xml', 'test/resources/log4j2-test.xml');
+
         // 3. créer archive
+        $path = 'java.zip';
+        $zip = Zip::create($path);
+        $zip->add(storage_path('app/test'));
+        $zip->close();
 
         return true;
     }
