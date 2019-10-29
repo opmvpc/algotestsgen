@@ -1,8 +1,10 @@
 <div class="panel {{ isset($class) ? $class : '' }}">
-    <h2>
-        {!! isset($icon) ? '<ion-icon name="'.$icon.'"></ion-icon>' : '' !!}
-        {{ $title }}
-    </h2>
+    @isset($title)
+        <h2>
+            {!! isset($icon) ? '<ion-icon name="'.$icon.'"></ion-icon>' : '' !!}
+            {{ $title }}
+        </h2>
+    @endisset
 
     <div class="d-flex">
 

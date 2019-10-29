@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Test;
+use App\Models\Probleme;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\TestRequest;
+use Illuminate\Support\Facades\Gate;
 
 class TestController extends Controller
 {
@@ -15,7 +19,7 @@ class TestController extends Controller
     public function index()
     {
         $tests = Test::with(['user', 'probleme'])->paginate(6);
-        // dd($tests);
+
         return view('tests.index', compact('tests'));
     }
 
@@ -26,7 +30,9 @@ class TestController extends Controller
      */
     public function create()
     {
-        //
+        $problemes = Probleme::pluck('nom', 'id');
+
+        return view('tests.create', compact('problemes'));
     }
 
     /**
@@ -35,9 +41,18 @@ class TestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TestRequest $request)
     {
-        //
+        $datas = $request->all();
+        $test = Test::create($datas);
+        $test->resultat = $datas['resultat'] == null ? 'null' : $datas['resultat'];
+        $test->nom = Str::slug($datas['nom']);
+        $test->user_id = $request->user()->id;
+        $test->save();
+
+        return redirect()
+            ->route('tests.index')
+            ->withOk('Votre proposition a été enregistrée');
     }
 
     /**
@@ -48,7 +63,7 @@ class TestController extends Controller
      */
     public function show(Test $test)
     {
-        //
+        return view('tests.show', compact('test'));
     }
 
     /**
@@ -59,7 +74,14 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {
-        //
+        if (! Gate::allows('update-test', $test)) {
+            return redirect()
+            ->route('tests.index');
+        }
+
+        $problemes = Probleme::pluck('nom', 'id');
+
+        return view('tests.edit', compact('test', 'problemes'));
     }
 
     /**
@@ -69,9 +91,22 @@ class TestController extends Controller
      * @param  \App\Test  $test
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Test $test)
+    public function update(TestRequest $request, Test $test)
     {
-        //
+        if (! Gate::allows('update-test', $test)) {
+            return redirect()
+            ->route('tests.index');
+        }
+
+        $datas = $request->all();
+        $test->update($datas);
+        $test->resultat = $datas['resultat'] == null ? 'null' : $datas['resultat'];
+        $test->nom = Str::slug($datas['nom']);
+        $test->save();
+
+        return redirect()
+            ->back()
+            ->withOk('Vos modifications ont été enregistrées');
     }
 
     /**

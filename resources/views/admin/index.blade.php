@@ -6,11 +6,8 @@
         'icon' => 'ios-color-wand',
     ])
 
-        <h3>Génération de la suite de test</h3>
-        <p>
-
-        </p>
-        <a href="{{ route('admin.generer') }}" class="btn btn-primary">Générer le code</a>
+        <h3>Génération de la suite de tests</h3>
+        <a href="{{ route('admin.generer') }}" class="btn btn-primary">Générer le zip</a>
 
     @endcomponent
 @endsection

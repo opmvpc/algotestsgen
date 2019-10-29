@@ -1,0 +1,45 @@
+@extends('layouts.app')
+
+@section('content')
+    @component('components.panel', [
+        'title' => 'Proposer un test',
+        'icon' => 'ios-apps',
+    ])
+
+        <form action="{{ route('tests.store') }}" method="POST">
+            @csrf
+
+            @component('components.inputs.select', [
+                'name' => 'probleme_id',
+                'label' => 'Problème',
+                'options' => $problemes,
+                'valeur' => '',
+            ])
+            @endcomponent
+
+            @component('components.inputs.text', [
+                'name' => 'nom',
+                'placeholder' => 'Ex: D&CMauvaisFormatEspacesEnTrop',
+            ])
+            @endcomponent
+
+            @component('components.inputs.text', [
+                'name' => 'resultat',
+                'label' => 'Résultat',
+                'placeholder' => 'Ex: null ou {1, 2, 3}',
+            ])
+            @endcomponent
+
+            @component('components.inputs.textarea', [
+                'name' => 'body',
+                'label' => 'Fichier',
+                'rows' => 20,
+            ])
+            @endcomponent
+
+            @component('components.buttons.submit')
+            @endcomponent
+        </form>
+
+    @endcomponent
+@endsection

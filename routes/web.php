@@ -13,17 +13,25 @@
 
 Route::get('/', function () {
     return view('github.login');
-});
+})->name('login');
 
-Route::get('home', 'HomeController@index')->name('home');
-Route::get('home/dl', 'HomeController@downloadZip')->name('home.dl');
-
-Route::resource('tests', 'TestController');
-
-Route::get('admin', 'AdminController@index')->name('admin.index');
-Route::get('admin/generer', 'AdminController@genererCode')->name('admin.generer');
-
-
+Route::post('logout', 'Auth\LogoutController@logoutUser')->name('logout');
 
 Route::get('login/github', 'Auth\GithubLoginController@redirectToProvider')->name('github.login');
 Route::get('login/github/callback', 'Auth\GithubLoginController@handleProviderCallback')->name('github.callback');;
+
+// App
+Route::middleware(['auth'])->group(function () {
+    Route::get('home', 'HomeController@index')->name('home');
+    Route::get('home/dl', 'HomeController@downloadZip')->name('home.dl');
+
+    Route::resource('tests', 'TestController');
+
+    Route::get('admin/generer', 'AdminController@genererCode')->name('admin.generer');
+});
+
+Route::middleware(['admin'])->group(function () {
+    Route::get('admin', 'AdminController@index')->name('admin.index');
+    Route::get('approuver/{test}', 'ApprouverTestController@approuver')->name('approuver');
+});
+

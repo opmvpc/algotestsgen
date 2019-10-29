@@ -18,6 +18,7 @@ final class Generateur
         Storage::deleteDirectory('test');
 
         $tests = Test::with(['user', 'probleme'])
+            ->where('est_approuve', true)
             ->get()
             ->mapToGroups(function ($item, $key) {
                 return [$item['probleme_id'] => $item];

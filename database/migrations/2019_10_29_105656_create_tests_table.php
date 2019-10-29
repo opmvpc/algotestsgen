@@ -16,7 +16,7 @@ class CreateTestsTable extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nom');
-            $table->string('resultat');
+            $table->string('resultat')->nullable();
             $table->text('body');
             $table->boolean('est_approuve')->default(false);
             $table->integer('user_id')->nullable();

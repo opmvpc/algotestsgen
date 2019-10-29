@@ -3,15 +3,20 @@
 @section('content')
 
     <div class="panel {{ isset($class) ? $class : '' }}">
-        <h2>
-            <ion-icon name="ios-apps"></ion-icon>
-            Liste des Tests
-        </h2>
+
+        <div class="d-flex justify-content-between">
+            <h2>
+                <ion-icon name="ios-apps"></ion-icon>
+                Liste des Tests
+            </h2>
+
+            <a href="{{ route('tests.create') }}" class="btn btn-link">Proposer un test</a>
+        </div>
 
         <div class="mt-5">
             <div class="row">
                 @foreach ($tests as $test)
-                    <div class="col col-4 mb-5">
+                    <div class="col col-xs-12 col-md-4 mb-5">
                         <div class="test-card bg-white mx-0 shadow-lg rounded p-4">
 
                             <div class="pb-3">
@@ -19,24 +24,17 @@
                                     {{ $test->nom }}
                                 </h4>
 
-                                <div class="avatar mb-3">
-                                    <img src="{{ request()->user()->avatar }}" class="align-self-center mr-1 rounded-circle" alt="{{ request()->user()->avatar }}">
-                                    Proposé par <b>{{ request()->user()->name }}</b>
+                                <div class="mb-3 text-muted">
+                                        {{ $test->probleme->nom }}
                                 </div>
 
-                                <div class="">
-                                    @if ($test->est_approuve)
-                                        <span class="badge badge-pill badge-success">
-                                            <ion-icon name="ios-checkmark"></ion-icon>
-                                            Approuvé
-                                        </span>
-                                    @else
-                                        <span class="badge badge-pill badge-warning">
-                                            <ion-icon name="ios-close"></ion-icon>
-                                            Pas encore approuvé
-                                        </span>
-                                    @endif
+                                <div class="avatar mb-3">
+                                    <img src="{{ $test->user->avatar }}" class="align-self-center mr-1 rounded-circle" alt="{{ $test->user->avatar }}">
+                                    Proposé par <b>{{ $test->user->name }}</b>
                                 </div>
+
+                                @component('components.badge', ['test' => $test])
+                                @endcomponent
                             </div>
 
                             @component('components.inputs.textarea', [
@@ -53,7 +51,10 @@
                             @endcomponent
 
                             <div class="actions text-right">
-                                <a href="{{ route('tests.show', $test) }}" class="btn-link">Détails du test</a>
+                                @if (Gate::allows('update-test', $test))
+                                <a href="{{ route('tests.edit', $test) }}" class="btn-link mr-2">Modifier</a>
+                                @endif
+                                <a href="{{ route('tests.show', $test) }}" class="btn-link">Voir</a>
                             </div>
                         </div>
                     </div>

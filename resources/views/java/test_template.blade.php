@@ -34,9 +34,9 @@ public class Algo2Problem{{ $key }}Test {
         }
     };
 
-    @foreach ($probleme as $test)
-        @Test
-        public void test_problem_{{ $test->probleme->id }}() throws Exception{
+    @foreach ($probleme as $index => $test)
+            @Test
+            public void test_problem_{{ $test->probleme->id }}_{{ $index }}() throws Exception{
             String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ $test->nom }}.txt";
             String[] result = Main.problem_{{ $test->probleme->id }}(getFileText(input));
             String[] s_result = {!! $test->resultat !!};
@@ -49,7 +49,7 @@ public class Algo2Problem{{ $key }}Test {
         }
 
         @Test
-        public void test_problem_{{ $test->probleme->id }}() throws Exception{
+        public void test_problem_{{ $test->probleme->id }}_{{ $index }}() throws Exception{
             String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ $test->nom }}.txt";
             String[] result = Main.problem_{{ $test->probleme->id }}_naive(getFileText(input));
             String[] s_result = {!! $test->resultat !!};

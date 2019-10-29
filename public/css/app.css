@@ -11578,6 +11578,11 @@ p {
   margin-bottom: 0.5rem;
 }
 
+.badge .text-badge {
+  position: relative;
+  bottom: 2px;
+}
+
 input,
 textarea {
   background-color: #fffbd9 !important;

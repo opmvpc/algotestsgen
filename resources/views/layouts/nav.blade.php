@@ -25,7 +25,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="#">Se déconnecter <span class="sr-only">(current)</span></a>
+                <a href="{{ route('logout') }}"
+                    class="nav-link"
+                    onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">Se déconnecter<span class="sr-only">(current)</span></a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                    {{ csrf_field() }}
+                </form>
             </li>
         </ul>
     </div>

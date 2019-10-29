@@ -11,6 +11,7 @@ class Test extends Model
         'body',
         'est_approuve',
         'user_id',
+        'probleme_id',
     ];
 
     protected $casts = [
