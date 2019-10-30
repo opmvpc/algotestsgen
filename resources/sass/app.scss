@@ -9,7 +9,9 @@
 @import 'theme/sidebar';
 
 // Toastr
+/* purgecss start ignore */
 @import "~toastr/toastr";
+/* purgecss end ignore */
 
 // Swal
 // @import 'vendor/swal';
