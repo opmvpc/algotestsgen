@@ -16,7 +16,7 @@
         <div class="mt-5">
             <div class="row">
                 @foreach ($tests as $test)
-                    <div class="col col-xs-12 col-md-4 mb-5">
+                    <div class="col col-12 col-md-6 col-lg-6 col-xl-4 mb-5">
                         <div class="test-card bg-white mx-0 shadow-lg rounded p-4">
 
                             <div class="pb-3">
