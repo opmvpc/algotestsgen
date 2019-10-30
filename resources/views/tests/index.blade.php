@@ -10,7 +10,7 @@
                 Liste des Tests
             </h2>
 
-            <a href="{{ route('tests.create') }}" class="btn btn-link">Proposer un test</a>
+            <a href="{{ route('tests.create') }}" class="btn btn-link text-right">Proposer un test</a>
         </div>
 
         <div class="mt-5">
