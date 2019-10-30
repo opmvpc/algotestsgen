@@ -64,7 +64,6 @@ div.sub-sections-list > ul.links-list > li > a.btn.btn-link:hover {
 }
 
 .btn:hover:not(.btn-link) {
-    box-shadow: 0px 6px 8px lighten(black, 70%);
     transform: translate(0px, -2px);
     transition-property: all;
     transition-duration: 0.2s;
@@ -77,4 +76,14 @@ div.sub-sections-list > ul.links-list > li > a.btn.btn-link:hover {
 
 #menu-toggle:hover {
     transform: none;
+}
+
+.btn.btn-search {
+    margin-left: -20px;
+}
+
+.btn.btn-search:hover {
+    transform: translate(2px, 0px);
+    transition-property: all;
+    transition-duration: 0.2s;
 }

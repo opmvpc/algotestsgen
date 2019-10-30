@@ -13,9 +13,29 @@
             <a href="{{ route('tests.create') }}" class="btn btn-link text-right">Proposer un test</a>
         </div>
 
-        <div class="mt-5">
+        <div class="d-flex mt-3 justify-content-between flex-column flex-lg-row align-items-center">
+            <div class="mb-sm-4 mb-lg-0 text-center">
+                <a href="{{ route('tests.index', ['probleme' => '1']) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0">Diviser pour régner</a>
+                <a href="{{ route('tests.index', ['probleme' => '2']) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0">Programmation dynamique</a>
+                <a href="{{ route('tests.index', ['probleme' => '3']) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0">Algo glouton</a>
+            </div>
+            <div>
+                <form action="{{ route('tests.index') }}" method="GET" class="d-flex
+                align-items-center py-10">
+                    @component('components.inputs.recherche', [
+                        'name' => 'recherche',
+                        'placeholder' => 'Votre recherche...'
+                    ])
+
+                    @endcomponent
+                    <button type="submit" class="btn-search btn btn-primary py-2">Go!</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-3">
             <div class="row">
-                @foreach ($tests as $test)
+                @forelse ($tests as $test)
                     <div class="col col-12 col-md-6 col-lg-6 col-xl-4 mb-5">
                         <div class="test-card bg-white mx-0 shadow-lg rounded p-4">
 
@@ -58,7 +78,9 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="alert alert-danger mx-auto mt-5">Pas de résultat 😱</div>
+                @endforelse
             </div>
 
             <div class="d-flex justify-content-center">

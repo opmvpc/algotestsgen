@@ -7,6 +7,7 @@ use App\Models\Probleme;
 use Illuminate\Http\Request;
 use App\Http\Requests\TestRequest;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Requests\TestIndexRequest;
 
 class TestController extends Controller
 {
@@ -15,10 +16,19 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(TestIndexRequest $request)
     {
         $tests = Test::with(['user', 'probleme'])
             ->orderBy('updated_at', 'desc')
+            ->when($request->has('probleme'), function ($query) {
+                $query->where('probleme_id', request()->probleme);
+            })
+            ->when($request->has('recherche'), function ($query) {
+                $query->where('nom', 'LIKE', '%'.request()->recherche.'%')
+                ->orWhereHas('user', function ($query) {
+                    $query->where('name', 'LIKE', '%'.request()->recherche.'%');
+                });
+            })
             ->paginate(6);
 
         return view('tests.index', compact('tests'));
