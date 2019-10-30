@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $zipPath = public_path('java.zip');
+        $zipPath = public_path('storage/java.zip');
         $zipDispo = is_file($zipPath);
 
         return view('home', compact('zipPath', 'zipDispo'));
@@ -17,6 +17,6 @@ class HomeController extends Controller
 
     public function downloadZip()
     {
-        return Storage::disk('assets')->download('java.zip');
+        return Storage::disk('public')->download('java.zip');
     }
 }

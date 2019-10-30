@@ -45,7 +45,7 @@ final class Generateur
         Storage::copy('generateur/log4j2-test.xml', 'test/resources/log4j2-test.xml');
 
         // 3. créer archive
-        $path = 'java.zip';
+        $path = storage_path('app/public/java.zip');
         $zip = Zip::create($path);
         $zip->add(storage_path('app/test'));
         $zip->close();
