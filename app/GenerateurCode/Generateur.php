@@ -14,7 +14,6 @@ final class Generateur
 
     public static function makeZip(): bool
     {
-        File::delete(public_path('java.zip'));
         Storage::deleteDirectory('test');
 
         $tests = Test::with(['user', 'probleme'])
@@ -46,7 +45,7 @@ final class Generateur
 
         // 3. créer archive
         $path = storage_path('app/public/java.zip');
-        $zip = Zip::create($path);
+        $zip = Zip::create($path, true);
         $zip->add(storage_path('app/test'));
         $zip->close();
 
