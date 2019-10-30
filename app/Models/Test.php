@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Test extends Model
 {
@@ -26,5 +27,10 @@ class Test extends Model
     public function probleme()
     {
         return $this->belongsTo(Probleme::class);
+    }
+
+    public function setNomAttribute($value)
+    {
+        $this->attributes['nom'] = Str::slug($value);
     }
 }

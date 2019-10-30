@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Test;
 use App\Models\Probleme;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\TestRequest;
 use Illuminate\Support\Facades\Gate;
@@ -18,7 +17,9 @@ class TestController extends Controller
      */
     public function index()
     {
-        $tests = Test::with(['user', 'probleme'])->paginate(6);
+        $tests = Test::with(['user', 'probleme'])
+            ->orderBy('updated_at', 'desc')
+            ->paginate(6);
 
         return view('tests.index', compact('tests'));
     }
@@ -46,7 +47,6 @@ class TestController extends Controller
         $datas = $request->all();
         $test = Test::create($datas);
         $test->resultat = $datas['resultat'] == null ? 'null' : $datas['resultat'];
-        $test->nom = Str::slug($datas['nom']);
         $test->user_id = $request->user()->id;
         $test->save();
 
@@ -101,7 +101,6 @@ class TestController extends Controller
         $datas = $request->all();
         $test->update($datas);
         $test->resultat = $datas['resultat'] == null ? 'null' : $datas['resultat'];
-        $test->nom = Str::slug($datas['nom']);
         $test->save();
 
         return redirect()
