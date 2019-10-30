@@ -58,14 +58,17 @@
                             </div>
 
                             @component('components.inputs.textarea', [
-                                'name' => 'Fichier',
+                                'name' => 'fichier',
+                                'id' => 'fichier-'.$loop->iteration,
                                 'rows' => 10,
                                 'value' => $test->body,
                             ])
                             @endcomponent
 
                             @component('components.inputs.text', [
-                                'name' => 'Résultat',
+                                'name' => 'resultat',
+                                'id' => 'resultat-'.$loop->iteration,
+                                'label' => 'Résultat',
                             ])
                                 {{ $test->resultat }}
                             @endcomponent
