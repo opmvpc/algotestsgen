@@ -40,8 +40,8 @@
                             @component('components.inputs.textarea', [
                                 'name' => 'Fichier',
                                 'rows' => 10,
+                                'value' => $test->body,
                             ])
-                                {{ $test->body }}
                             @endcomponent
 
                             @component('components.inputs.text', [

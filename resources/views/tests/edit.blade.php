@@ -37,7 +37,12 @@
                 'name' => 'body',
                 'label' => 'Fichier',
                 'rows' => 20,
-            ]){{$test->body}}@endcomponent
+                'value' => $test->body,
+            ])
+            @endcomponent
+
+
+            {{-- <textarea name="body" id="body" rows="10" class="w-100 rounded">{!!$test->body!!}</textarea> --}}
 
             @component('components.buttons.submit')
             @endcomponent
