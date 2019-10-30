@@ -54,7 +54,7 @@
                                 @if (Gate::allows('update-test', $test))
                                 <a href="{{ route('tests.edit', $test) }}" class="btn-link mr-2">Modifier</a>
                                 @endif
-                                <a href="{{ route('tests.show', $test) }}" class="btn-link">Voir</a>
+                                <a href="{{ route('tests.show', $test) }}" class="btn-link">Commenter</a>
                             </div>
                         </div>
                     </div>

@@ -15,5 +15,22 @@
             Les tests n'ont pas encore été générés.
         @endif
 
+        <hr>
+
+        <h3>Proposer un test</h3>
+        <p class="mb-4">Votre test sera accepté après validation par les autres étudiants</p>
+        <a href="{{ route('tests.create') }}" class="btn btn-primary">Proposer un test</a>
+
+        <hr>
+
+        <h3>Votre avis compte!</h3>
+        <p class="mb-4">
+            N'hésitez pas à proposer des idées d'améliorations de l'application.
+            <br>
+            PR's are welcome! 🤗
+            <br>
+            Si vous découvrez un bug 😱, ouvrez un ticket sur le GitHub du projet svp.
+        </p>
+        <a href="https://github.com/opmvpc/algotestsgen" target="_blank" class="btn btn-primary">GitHub du projet</a>
     @endcomponent
 @endsection
