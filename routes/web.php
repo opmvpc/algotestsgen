@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('github.login');
-})->name('login');
+Route::get('/', 'Auth\GithubLoginController@index')->name('login');
 
 Route::post('logout', 'Auth\LogoutController@logoutUser')->name('logout');
 

@@ -3,12 +3,24 @@
 namespace App\Http\Controllers\Auth;
 
 use Socialite;
+use App\Models\Test;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class GithubLoginController extends Controller
 {
+    public function index()
+    {
+        if (Auth::check()) {
+            return redirect()->route('home');
+        }
+
+        $testCount = Test::stats();
+
+        return view('github.login', compact('testCount'));
+    }
+
     /**
      * Redirect the user to the GitHub authentication page.
      *

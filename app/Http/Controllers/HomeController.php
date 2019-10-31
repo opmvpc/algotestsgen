@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Test;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,7 +13,9 @@ class HomeController extends Controller
         $zipPath = public_path('storage/java.zip');
         $zipDispo = is_file($zipPath);
 
-        return view('home', compact('zipPath', 'zipDispo'));
+        $testCount = Test::stats();
+
+        return view('home', compact('zipPath', 'zipDispo', 'testCount'));
     }
 
     public function downloadZip()

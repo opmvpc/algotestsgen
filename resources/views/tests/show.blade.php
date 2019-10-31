@@ -2,7 +2,7 @@
 
 @section('content')
     @component('components.panel', [
-        'title' => 'Test',
+        'title' => 'Commenter',
         'icon' => 'ios-apps',
     ])
 

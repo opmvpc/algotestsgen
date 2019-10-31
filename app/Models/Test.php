@@ -33,4 +33,12 @@ class Test extends Model
     {
         $this->attributes['nom'] = Str::slug($value);
     }
+
+    public static function stats()
+    {
+        return [
+            'approuve' => static::where('est_approuve', true)->count(),
+            'pending' => static::where('est_approuve', false)->count(),
+        ];
+    }
 }

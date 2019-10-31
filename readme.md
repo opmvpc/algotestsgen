@@ -44,8 +44,14 @@ $ php artisan migrate:fresh --seed
 ### 7. Permissions
 
 ```bash
-$ sudo chmod -R g+w bootstrap/cache/ 
-$ sudo chmod -R g+w storage/ 
+$ sudo chmod -R g+w bootstrap/cache/
+$ sudo chmod -R g+w storage/
 ```
 
-Et normalement ça devrait fonctionner 
+### 1. cloner le repos
+
+```bash
+$ php artisan storage:link
+```
+
+Et normalement ça devrait fonctionner
