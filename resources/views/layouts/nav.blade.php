@@ -11,7 +11,7 @@
 
     @auth
         <button
-            class="btn-more btn btn-light mr-2 d-md-none"
+            class="btn-more btn btn-light mr-2 d-lg-none"
             type="button"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"

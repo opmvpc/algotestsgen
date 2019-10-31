@@ -1,5 +1,11 @@
 .brand {
+    font-size: 1rem;
+}
+
+@media (min-width: 576px) {
+    .brand {
     font-size: 1.25rem;
+}
 }
 
 @media (min-width: 768px) {
@@ -81,4 +87,10 @@ p {
 .badge .text-badge {
     position: relative;
     bottom: 2px;
+}
+
+span.tests-count {
+    font-size: 150%;
+    font-weight: 900;
+    color: lighten(black, 40%);
 }

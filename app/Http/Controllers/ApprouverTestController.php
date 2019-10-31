@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Test;
 use Illuminate\Http\Request;
+use App\GenerateurCode\Generateur;
 
 class ApprouverTestController extends Controller
 {
@@ -12,8 +13,12 @@ class ApprouverTestController extends Controller
         $test->est_approuve = $test->est_approuve ? false : true;
         $test->save();
 
-        return redirect()
-            ->back()
-            ->withOk('Vos modifications ont été enregistrées');
+        $estOk = Generateur::makeZip();
+
+        if ($estOk) {
+            return redirect()->back()->withOk('Les fichiers ont été générés');
+        }
+
+        return redirect()->back()->withOk('Une erreur est survenue');
     }
 }

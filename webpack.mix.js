@@ -18,6 +18,6 @@ mix.js('resources/js/app.js', 'public/js')
         enabled: mix.inProduction(),
         folders: ['resources'],
         extensions: ['php', 'js', 'html'],
-        whitelistPatterns: [/btn-/],
+        whitelistPatterns: [/btn-/, /pagination/, /page-/],
     })
     .browserSync('localhost');

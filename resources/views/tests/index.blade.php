@@ -7,17 +7,18 @@
         <div class="d-flex justify-content-between">
             <h2>
                 <ion-icon name="ios-apps"></ion-icon>
-                Liste des Tests
+                {{ $tests->count() }} Tests
             </h2>
 
             <a href="{{ route('tests.create') }}" class="btn btn-link text-right">Proposer un test</a>
         </div>
 
         <div class="d-flex mt-3 justify-content-between flex-column flex-lg-row align-items-center">
-            <div class="mb-sm-4 mb-lg-0 text-center">
-                <a href="{{ route('tests.index', ['probleme' => '1']) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0">Diviser pour régner</a>
-                <a href="{{ route('tests.index', ['probleme' => '2']) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0">Programmation dynamique</a>
-                <a href="{{ route('tests.index', ['probleme' => '3']) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0">Algo glouton</a>
+            <div class="filtres mb-sm-4 mb-lg-0 text-center">
+                <a href="{{ route('tests.index') }}" class="btn mr-3 btn-sm mb-3 mb-sm-0 {{ ! request()->has('probleme') && request()->query('recherche') == '' ? 'active' : ''}}">Tous</a>
+                <a href="{{ route('tests.index', ['probleme' => '1']) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0 {{ request()->query('probleme') == 1 ? 'active' : ''}}">Diviser pour régner</a>
+                <a href="{{ route('tests.index', ['probleme' => '2']) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0 {{ request()->query('probleme') == 2 ? 'active' : ''}}">Programmation dynamique</a>
+                <a href="{{ route('tests.index', ['probleme' => '3']) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0 {{ request()->query('probleme') == 3 ? 'active' : ''}}">Algo glouton</a>
             </div>
             <div>
                 <form action="{{ route('tests.index') }}" method="GET" class="d-flex

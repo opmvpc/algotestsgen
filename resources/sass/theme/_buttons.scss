@@ -87,3 +87,15 @@ div.sub-sections-list > ul.links-list > li > a.btn.btn-link:hover {
     transition-property: all;
     transition-duration: 0.2s;
 }
+
+.filtres > .btn {
+    background-color: white;
+}
+
+.filtres > .btn.active {
+    background-color: lighten($yellow, 25%);
+}
+
+ul.pagination {
+    box-shadow: 0px 15px 25px lighten(black, 80%);
+}

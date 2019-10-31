@@ -24,8 +24,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('home/dl', 'HomeController@downloadZip')->name('home.dl');
 
     Route::resource('tests', 'TestController');
-
-    Route::get('admin/generer', 'AdminController@genererCode')->name('admin.generer');
 });
 
 Route::middleware(['admin'])->group(function () {
