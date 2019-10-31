@@ -8,8 +8,8 @@
     <meta property="og:image" content="{{ asset('storage/img/algotesthome.png') }}" />
     @php
         $testCount = \App\Models\Test::stats();
-        $description = 'Partagez facilement les tests du projet d\'algo: \n ';
-        $description .= $testCount['approuve'] .' tests approuvés ✅ \n ';
+        $description = 'Partagez facilement les tests du projet d\'algo: ';
+        $description .= $testCount['approuve'] .' tests approuvés ✅ & ';
         $description .= $testCount['pending'] .' en attente d\'approbation ⌛';
     @endphp
     <meta property="og:description" content="{!! $description !!}" />
