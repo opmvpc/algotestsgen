@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-between">
             <h2>
                 <ion-icon name="ios-apps"></ion-icon>
-                {{ $tests->count() }} Tests
+                {{ $tests->toArray()['total'] }} Tests
             </h2>
 
             <a href="{{ route('tests.create') }}" class="btn btn-link text-right">Proposer un test</a>
