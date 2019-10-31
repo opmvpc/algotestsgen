@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Partagez facilement les tests du projet d'algo | {{ config('app.name') }}</title>
+    <title>Partagez facilement les tests du projet d'algo! | {{ config('app.name') }}</title>
     @include('layouts.seo')
 </head>
 <body>
