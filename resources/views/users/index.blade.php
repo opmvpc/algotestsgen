@@ -41,7 +41,7 @@
                                     <b><h5 class="d-inline">{{ $user->name }}</h5></b>
                                 </div>
                                 <h6 class="text-muted">
-                                    3 tests proposés
+                                    {{ $user->testCount }} tests proposés
                                 </h6>
                                 <hr class="mb-3 mt-4">
                             </div>

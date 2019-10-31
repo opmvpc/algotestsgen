@@ -15,6 +15,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $users = User::orderBy('created_at', 'desc')
+            ->withCount('tests AS testCount')
             ->when($request->has('recherche'), function ($query) {
                 $query->where('name', 'LIKE', '%' . request()->recherche . '%');
             })
