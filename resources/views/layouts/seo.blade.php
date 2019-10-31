@@ -12,9 +12,7 @@
         $description .= $testCount['approuve'] .' tests approuvés ✅ \n ';
         $description .= $testCount['pending'] .' en attente d\'approbation ⌛';
     @endphp
-    <meta property="og:description" content="{!! 'Partagez facilement les tests du projet d\'algo:' !!}" />
-    <meta property="og:description" content="{!! $testCount['approuve'] .' tests approuvés ✅' !!}" />
-    <meta property="og:description" content="{!! $testCount['pending'] .' en attente d\'approbation ⌛' !!}" />
+    <meta property="og:description" content="{!! $description !!}" />
     <meta name="description" content="{!! $description !!}" >
 
     <meta name="twitter:card" content="summary_large_image">
