@@ -16,7 +16,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'github_id', 'avatar',
+        'name',
+        'email',
+        'password',
+        'github_id',
+        'avatar',
+        'est_admin',
+        'est_banni',
     ];
 
     /**
@@ -35,6 +41,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'est_admin' => 'boolean',
+        'est_banni' => 'boolean',
     ];
 
     public function tests()

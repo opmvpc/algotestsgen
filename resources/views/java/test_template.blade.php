@@ -35,6 +35,7 @@ public class Algo2Problem{{ $key }}Test {
     };
 
     @foreach ($probleme as $index => $test)
+            // Test proposé par {{ $test->user->name }}
             @Test
             public void test_problem_{{ $test->probleme->id }}_{{ $index }}() throws Exception{
             String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ $test->nom }}.txt";
@@ -48,6 +49,7 @@ public class Algo2Problem{{ $key }}Test {
             @endif
         }
 
+        // Test proposé par {{ $test->user->name }}
         @Test
         public void test_problem_{{ $test->probleme->id }}_{{ $index }}() throws Exception{
             String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ $test->nom }}.txt";

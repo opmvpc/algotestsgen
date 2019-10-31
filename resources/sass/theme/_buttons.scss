@@ -5,6 +5,12 @@ a#scroll-top {
     font-size: 150%;
 }
 
+@media (min-width: 576px) {
+    a#scroll-top {
+        right: 0.45rem;
+    }
+}
+
 .btn.btn-link:hover {
     text-decoration: none;
 }

@@ -2,10 +2,12 @@
 
 @section('content')
     @component('components.panel', [
-        'title' => 'Administration',
-        'icon' => 'ios-color-wand',
+        'title' => 'Réglages',
+        'icon' => 'ios-cog',
     ])
 
+        <h3>Génération de la suite de tests</h3>
+        <a href="{{ route('admin.generer') }}" class="btn btn-primary">Générer le zip</a>
 
     @endcomponent
 @endsection

@@ -11,7 +11,7 @@
 
     @auth
         <button
-            class="btn-more btn btn-light mr-2 d-lg-none"
+            class="btn-more btn btn-light d-lg-none"
             type="button"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -28,7 +28,7 @@
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item">
                     <a href="{{ route('logout') }}"
-                        class="nav-link"
+                        class="nav-link p-0"
                         onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">Se déconnecter<span class="sr-only">(current)</span></a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">

@@ -19,7 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('github_id')->unique();
             $table->string('email')->unique();
             $table->string('avatar');
-            $table->string('est_admin')->default(false);
+            $table->boolean('est_admin')->default(false);
+            $table->boolean('est_banni')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

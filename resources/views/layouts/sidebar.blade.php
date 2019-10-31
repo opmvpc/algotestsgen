@@ -23,11 +23,19 @@
 
             @if (request()->user()->est_admin)
                 @component('components.buttons.navlink', [
+                    'route' => route('users.index'),
+                    'regex' => 'users*',
+                    'icon' => 'ios-people',
+                ])
+                    Utilisateurs
+                @endcomponent
+
+                @component('components.buttons.navlink', [
                     'route' => route('admin.index'),
                     'regex' => 'admin*',
-                    'icon' => 'ios-color-wand',
+                    'icon' => 'ios-cog',
                 ])
-                    Administration
+                    Réglages
                 @endcomponent
             @endif
         @endauth

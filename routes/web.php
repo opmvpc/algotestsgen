@@ -11,23 +11,27 @@
 |
 */
 
+
 Route::get('/', 'Auth\GithubLoginController@index')->name('login');
-
 Route::post('logout', 'Auth\LogoutController@logoutUser')->name('logout');
-
 Route::get('login/github', 'Auth\GithubLoginController@redirectToProvider')->name('github.login');
 Route::get('login/github/callback', 'Auth\GithubLoginController@handleProviderCallback')->name('github.callback');;
 
+
 // App
-Route::middleware(['auth'])->group(function () {
-    Route::get('home', 'HomeController@index')->name('home');
-    Route::get('home/dl', 'HomeController@downloadZip')->name('home.dl');
+Route::get('home', 'HomeController@index')->name('home')->middleware(['auth', 'ban']);
+Route::get('home/dl', 'HomeController@downloadZip')->name('home.dl')->middleware(['auth', 'ban']);
 
-    Route::resource('tests', 'TestController');
-});
+Route::resource('tests', 'TestController')->middleware(['auth', 'ban']);
 
-Route::middleware(['admin'])->group(function () {
-    Route::get('admin', 'AdminController@index')->name('admin.index');
-    Route::get('approuver/{test}', 'ApprouverTestController@approuver')->name('approuver');
-});
+
+// Admin
+Route::get('approuver/{test}', 'ApprouverTestController@approuver')->name('approuver')->middleware(['admin', 'ban']);
+
+Route::get('admin', 'AdminController@index')->name('admin.index')->middleware(['admin', 'ban']);
+Route::get('admin/generer', 'AdminController@genererCode')->name('admin.generer')->middleware(['admin', 'ban']);
+
+Route::get('users', 'UserController@index')->name('users.index')->middleware(['admin', 'ban']);
+Route::get('users/{user}/admin', 'UserController@toggleAdmin')->name('users.admin')->middleware(['admin', 'ban']);
+Route::get('users/{user}/bannir', 'UserController@toggleBannir')->name('users.bannir')->middleware(['admin', 'ban']);
 
