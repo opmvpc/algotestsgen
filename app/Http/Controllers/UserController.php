@@ -26,6 +26,10 @@ class UserController extends Controller
 
     public function toggleAdmin(Request $request, User $user)
     {
+        if ($user->is(request()->user())) {
+            return redirect()->back()->withErrors('Il manquerait plus que ça! Et puis quoi encore?');
+        }
+
         if ($user->est_admin) {
             $user->est_admin = false;
             $message = 'L\'utilisateur n\'est plus Administrateur';
@@ -41,6 +45,10 @@ class UserController extends Controller
 
     public function toggleBannir(Request $request, User $user)
     {
+        if ($user->is(request()->user())) {
+            return redirect()->back()->withErrors('Il manquerait plus que ça! Et puis quoi encore?');
+        }
+
         if ($user->est_banni) {
             $user->est_banni = false;
             $message = 'L\'utilisateur n\'est plus banni';
