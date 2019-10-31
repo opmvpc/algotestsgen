@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.*;
 
 public class Algo2Problem{{ $key }}Test {
 
@@ -51,7 +52,7 @@ public class Algo2Problem{{ $key }}Test {
 
         // Test proposé par {{ $test->user->name }}
         @Test
-        public void test_problem_{{ $test->probleme->id }}_{{ $index }}_naive() throws Exception{
+        public void test_problem_naive_{{ $test->probleme->id }}_{{ $index }}() throws Exception{
             String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ $test->nom }}.txt";
             String[] result = Main.problem_{{ $test->probleme->id }}_naive(getFileText(input));
             String[] s_result = {!! $test->resultat !!};
