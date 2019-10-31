@@ -9,7 +9,7 @@
     @php
         $testCount = \App\Models\Test::stats();
         $description = 'Déjà '. $testCount['approuve'] .' tests approuvés ✅ ';
-        $description .= $testCount['pending'] .' et tests en attente d\'approbation ⌛';
+        $description .= 'et '. $testCount['pending'] .' tests en attente d\'approbation ⌛';
     @endphp
     <meta property="og:description" content="{!! $description !!}" />
     <meta name="description" content="{!! $description !!}" >
