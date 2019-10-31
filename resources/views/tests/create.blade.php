@@ -26,7 +26,7 @@
             @component('components.inputs.text', [
                 'name' => 'resultat',
                 'label' => 'Résultat',
-                'placeholder' => 'Ex: null ou {1, 2, 3}',
+                'placeholder' => 'Ex: null ou {"1", "2", "3"}',
             ])
             @endcomponent
 

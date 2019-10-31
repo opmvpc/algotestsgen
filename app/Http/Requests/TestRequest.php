@@ -42,7 +42,7 @@ class TestRequest extends FormRequest
             'resultat' => [
                 'required',
                 'max:100',
-                'regex:/^(null|\{(\s*(\"\d+\"|\d+|\"\w+\")\s*\,?\s*)*\})$/i',
+                'regex:/^(null|\{(\s*(\"\d+\"|\"\w+\")\s*\,?\s*)*\})$/i',
             ],
             'body' => 'required|string|max:500',
         ];
