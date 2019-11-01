@@ -4,6 +4,16 @@
 
     <div class="list-group list-group-flush">
 
+        @guest
+            @component('components.buttons.navlink', [
+                'route' => route('home'),
+                'regex' => '/',
+                'icon' => 'ios-log-in',
+            ])
+                Connexion
+            @endcomponent
+        @endguest
+
         @auth
             @component('components.buttons.navlink', [
                 'route' => route('home'),
@@ -39,6 +49,14 @@
                 @endcomponent
             @endif
         @endauth
+
+        @component('components.buttons.navlink', [
+            'route' => route('faq'),
+            'regex' => 'comment-ca-marche',
+            'icon' => 'ios-help-circle',
+        ])
+            Comment ça marche?
+        @endcomponent
 
     </div>
 </div>

@@ -46,12 +46,13 @@ public class Algo2Problem{{ $key }}Test {
         String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ $test->nom }}.txt";
 
         String[] result = Main.problem_{{ $test->probleme->id }}(getFileText(input));
-        String[] s_result = {!! $test->resultat !!};
-
     @if ($test->resultat != 'null')
+    String[] s_result = {!! $test->resultat !!};
+
     assertArrayEquals(s_result, result);
 @else
-    assertEquals(result, s_result);
+
+        assertNull(result);
 @endif
     }
 
@@ -61,15 +62,16 @@ public class Algo2Problem{{ $key }}Test {
     @Test
     public void test_{{ $index+1 }}_problem_{{ $test->probleme->id }}_naive_{{ $test->resultat != 'null' ? 'ok' : 'fail' }}_{{ str_replace('-', '_', Str::slug($test->nom)) }}() throws Exception {
 
-        String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ $test->nom }}.txt";
+        String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ Str::slug($test->nom) }}.txt";
 
         String[] result = Main.problem_{{ $test->probleme->id }}(getFileText(input));
-        String[] s_result = {!! $test->resultat !!};
-
     @if ($test->resultat != 'null')
+    String[] s_result = {!! $test->resultat !!};
+
     assertArrayEquals(s_result, result);
 @else
-    assertEquals(result, s_result);
+
+        assertNull(result);
 @endif
     }
 

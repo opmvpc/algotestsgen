@@ -18,6 +18,11 @@ class HomeController extends Controller
         return view('home', compact('zipPath', 'zipDispo', 'testCount'));
     }
 
+    public function commentCaMarche()
+    {
+        return view('faq');
+    }
+
     public function downloadZip()
     {
         return Storage::disk('public')->download('java.zip');

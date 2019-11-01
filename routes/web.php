@@ -17,6 +17,7 @@ Route::post('logout', 'Auth\LogoutController@logoutUser')->name('logout');
 Route::get('login/github', 'Auth\GithubLoginController@redirectToProvider')->name('github.login');
 Route::get('login/github/callback', 'Auth\GithubLoginController@handleProviderCallback')->name('github.callback');;
 
+Route::get('comment-ca-marche', 'HomeController@commentCaMarche')->name('faq');
 
 // App
 Route::get('home', 'HomeController@index')->name('home')->middleware(['auth', 'ban']);
