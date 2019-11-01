@@ -33,14 +33,9 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-6 p-4">
-                <a href="{{ asset('storage/img/algotestliste.png') }}" target="_blank">
-                    <img src="{{ asset('storage/img/algotestliste.png') }}" class="img-fluid shadow-lg rounded" alt="Responsive image">
-                </a>
-            </div>
-            <div class="col-lg-6 p-4">
-                <a href="{{ asset('storage/img/algotestcommenter.png') }}" target="_blank">
-                    <img src="{{ asset('storage/img/algotestcommenter.png') }}" class="img-fluid shadow-lg rounded" alt="Responsive image">
+            <div class="p-4">
+                <a href="{{ asset('storage/img/idea.png') }}" target="_blank">
+                    <img src="{{ asset('storage/img/idea.png') }}" class="img-fluid shadow-lg rounded" alt="Responsive image">
                 </a>
             </div>
         </div>
