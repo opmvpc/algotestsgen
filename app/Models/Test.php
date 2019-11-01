@@ -29,11 +29,6 @@ class Test extends Model
         return $this->belongsTo(Probleme::class);
     }
 
-    public function setNomAttribute($value)
-    {
-        $this->attributes['nom'] = Str::slug($value);
-    }
-
     public static function stats()
     {
         return [

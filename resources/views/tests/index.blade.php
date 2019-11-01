@@ -34,10 +34,10 @@
             </div>
         </div>
 
-        <div class="mt-3">
-            <div class="row">
+        <div class="mt-4">
+            <div class="row m-0">
                 @forelse ($tests as $test)
-                    <div class="col col-12 col-md-6 col-lg-6 col-xl-4 mb-5">
+                    <div class="col col-12 col-md-6 col-lg-6 col-xl-4 mb-4 mb-lg-5 px-0 px-md-2">
                         <div class="test-card bg-white mx-0 shadow-lg rounded p-4">
 
                             <div class="pb-3">
@@ -63,6 +63,7 @@
                                 'id' => 'fichier-'.$loop->iteration,
                                 'rows' => 10,
                                 'value' => $test->body,
+                                'disabled' => true,
                             ])
                             @endcomponent
 

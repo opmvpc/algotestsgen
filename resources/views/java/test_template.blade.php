@@ -35,35 +35,44 @@ public class Algo2Problem{{ $key }}Test {
         }
     };
 
-    @foreach ($probleme as $index => $test)
-            // Test proposé par {{ $test->user->name }}
-            @Test
-            public void test_problem_{{ $test->probleme->id }}_{{ $index }}() throws Exception{
-            String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ $test->nom }}.txt";
-            String[] result = Main.problem_{{ $test->probleme->id }}(getFileText(input));
-            String[] s_result = {!! $test->resultat !!};
+@foreach ($probleme as $test)
 
-            @if ($test->resultat != 'null')
-                assertArrayEquals(s_result, result);
-            @else
-                assertNull(result);
-            @endif
-        }
+    /*
+    | Test proposé par {{ $test->user->name }}
+    */
+    @Test
+    public void test_problem-{{ $test->probleme->id }}-{{ $test->resultat != 'null' ? 'ok' : 'fail' }}-{{ Str::slug($test->nom) }}() throws Exception {
 
-        // Test proposé par {{ $test->user->name }}
-        @Test
-        public void test_problem_naive_{{ $test->probleme->id }}_{{ $index }}() throws Exception{
-            String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ $test->nom }}.txt";
-            String[] result = Main.problem_{{ $test->probleme->id }}_naive(getFileText(input));
-            String[] s_result = {!! $test->resultat !!};
+        String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ $test->nom }}.txt";
 
-            @if ($test->resultat != 'null')
-                assertArrayEquals(s_result, result);
-            @else
-                assertNull(result);
-            @endif
-        }
+        String[] result = Main.problem_{{ $test->probleme->id }}(getFileText(input));
+        String[] s_result = {!! $test->resultat !!};
 
-    @endforeach
+    @if ($test->resultat != 'null')
+    assertArrayEquals(s_result, result);
+@else
+    assertNull(result);
+@endif
+    }
+
+    /*
+    | Test proposé par {{ $test->user->name }}
+    */
+    @Test
+    public void test-problem-{{ $test->probleme->id }}-naive-{{ $test->resultat != 'null' ? 'ok' : 'fail' }}-{{ Str::slug($test->nom) }}() throws Exception {
+
+        String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ $test->nom }}.txt";
+
+        String[] result = Main.problem_{{ $test->probleme->id }}(getFileText(input));
+        String[] s_result = {!! $test->resultat !!};
+
+    @if ($test->resultat != 'null')
+    assertArrayEquals(s_result, result);
+@else
+    assertNull(result);
+@endif
+    }
+
+@endforeach
 
 }

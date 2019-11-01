@@ -30,7 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('update-test', function ($user, $test) {
-            return $user->id === $test->user_id;
+            return ($user->id === $test->user_id || $user->est_admin) && !$test->est_approuve;
         });
     }
 }

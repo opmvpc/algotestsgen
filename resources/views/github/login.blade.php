@@ -21,6 +21,7 @@
                 <h4 class="mb-2 p-0">🔹 Proposez des tests</h4>
                 <h4 class="mb-2 p-0">🔹 Donnez votre avis, débusquez les bugs</h4>
                 <h4 class="mb-2 p-0">🔹 Récupérez la suite de tests</h4>
+                <h4 class="mb-2 p-0">🔹 Intégration dans votre projet en quelques clics</h4>
             </div>
 
             <div class="mb-5">

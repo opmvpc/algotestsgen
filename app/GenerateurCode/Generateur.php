@@ -4,6 +4,7 @@ namespace App\GenerateurCode;
 
 use App\Models\Test;
 use ZanySoft\Zip\Zip;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -31,7 +32,7 @@ final class Generateur
 
             $probleme->each(function ($test) use ($problemDirectory) {
                 // 1. créer fichiers
-                $fileName = $problemDirectory . $test->nom . '.txt';
+                $fileName = $problemDirectory . Str::slug($test->nom) . '.txt';
                 Storage::put($fileName, $test->body);
             });
 

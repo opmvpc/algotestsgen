@@ -14,8 +14,14 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::orderBy('created_at', 'desc')
+        $users = User
+            ::when(! $request->query('contributions'), function ($query) {
+                $query->orderBy('created_at', 'desc');
+            })
             ->withCount('tests AS testCount')
+            ->when($request->query('contributions'), function ($query) {
+                $query->orderBy('testCount', 'desc');
+            })
             ->when($request->has('recherche'), function ($query) {
                 $query->where('name', 'LIKE', '%' . request()->recherche . '%');
             })
@@ -24,7 +30,7 @@ class UserController extends Controller
         return view('users.index', compact('users'));
     }
 
-    public function toggleAdmin(Request $request, User $user)
+    public function toggleAdmin(User $user)
     {
         if ($user->is(request()->user())) {
             return redirect()->back()->withErrors('Il manquerait plus que ça! Et puis quoi encore?');
@@ -43,9 +49,9 @@ class UserController extends Controller
         return redirect()->back()->withOk($message);
     }
 
-    public function toggleBannir(Request $request, User $user)
+    public function toggleBannir(User $user)
     {
-        if ($user->is(request()->user())) {
+        if ($user->is(request()->user()) || $user->est_admin) {
             return redirect()->back()->withErrors('Il manquerait plus que ça! Et puis quoi encore?');
         }
 
