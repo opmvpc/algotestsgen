@@ -20,7 +20,7 @@
 
             @component('components.inputs.text', [
                 'name' => 'nom',
-                'placeholder' => 'Ex: D&CMauvaisFormatEspacesEnTrop',
+                'placeholder' => 'Ex: mauvais nombre de colonnes',
             ])
                 {{$test->nom}}
             @endcomponent

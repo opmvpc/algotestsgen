@@ -13,13 +13,13 @@
                 'name' => 'probleme_id',
                 'label' => 'Problème',
                 'options' => $problemes,
-                'valeur' => '',
+                'valeur' => request()->has('probleme') ? request()->query('probleme') : '',
             ])
             @endcomponent
 
             @component('components.inputs.text', [
                 'name' => 'nom',
-                'placeholder' => 'Ex: D&CMauvaisFormatEspacesEnTrop',
+                'placeholder' => 'Ex: mauvais nombre de colonnes',
             ])
             @endcomponent
 

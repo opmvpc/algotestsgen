@@ -10,19 +10,35 @@
                 {{ $tests->toArray()['total'] }} Tests
             </h2>
 
-            <a href="{{ route('tests.create') }}" class="btn btn-link text-right">Proposer un test</a>
+            <a href="{{ request()->has('probleme') ? route('tests.create', request()->only('probleme') ) : route('tests.create') }}" class="btn btn-link text-right">Proposer un test</a>
         </div>
 
-        <div class="d-flex mt-3 justify-content-between flex-column flex-lg-row align-items-center">
+        <div class="d-flex mt-4 justify-content-between flex-column flex-lg-row align-items-center">
             <div class="filtres mb-sm-4 mb-lg-0 text-center">
-                <a href="{{ route('tests.index') }}" class="btn mr-3 btn-sm mb-3 mb-sm-0 {{ ! request()->has('probleme') && request()->query('recherche') == '' ? 'active' : ''}}">Tous</a>
-                <a href="{{ route('tests.index', ['probleme' => '1']) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0 {{ request()->query('probleme') == 1 ? 'active' : ''}}">Diviser pour régner</a>
-                <a href="{{ route('tests.index', ['probleme' => '2']) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0 {{ request()->query('probleme') == 2 ? 'active' : ''}}">Programmation dynamique</a>
-                <a href="{{ route('tests.index', ['probleme' => '3']) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0 {{ request()->query('probleme') == 3 ? 'active' : ''}}">Algo glouton</a>
+                <a
+                    href="{{ route('tests.index') }}"
+                    class="btn mr-3 btn-sm mb-3 {{ ! request()->has('probleme') && ! request()->has('en_attente') && request()->query('recherche') == '' ? 'active' : ''}}"
+                >
+                    Tous
+                </a>
+                <a
+                    href="{{ route('tests.index', ['en_attente' => true]) }}"
+                    class="btn mr-3 btn-sm mb-3 {{ request()->query('en_attente') == true ? 'active' : ''}}"
+                >
+                    En attente
+                </a>
+                @foreach ($problemes as $index => $probleme)
+                    <a
+                        href="{{ route('tests.index', ['probleme' => $index]) }}"
+                        class="btn mr-3 btn-sm mb-3 {{ request()->query('probleme') == $index ? 'active' : ''}}"
+                    >
+                        {{ $probleme }}
+                    </a>
+                @endforeach
             </div>
             <div>
                 <form action="{{ route('tests.index') }}" method="GET" class="d-flex
-                align-items-center py-10">
+                align-items-center py-10 mb-3">
                     @component('components.inputs.recherche', [
                         'name' => 'recherche',
                         'placeholder' => 'Votre recherche...'
@@ -46,12 +62,12 @@
                                 </h4>
 
                                 <div class="mb-3 text-muted">
-                                        {{ $test->probleme->nom }}
+                                        Problème {{ $test->probleme->id }}: {{ $test->probleme->nom }}
                                 </div>
 
                                 <div class="avatar mb-3">
                                     <img src="{{ $test->user->avatar }}" class="align-self-center mr-1 rounded-circle" alt="{{ $test->user->avatar }}">
-                                    Proposé par <b>{{ $test->user->name }}</b>
+                                    <span class="user-name">Proposé par <b>{{ $test->user->name }}</b></span>
                                 </div>
 
                                 @component('components.badge', ['test' => $test])

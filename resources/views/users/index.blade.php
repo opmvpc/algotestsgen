@@ -13,12 +13,22 @@
 
         <div class="d-flex mt-3 justify-content-between flex-column flex-lg-row align-items-center">
             <div class="filtres mb-sm-4 mb-lg-0 text-center">
-                <a href="{{ route('users.index') }}" class="btn mr-3 btn-sm mb-3 mb-sm-0 {{ request()->query('recherche') == '' && !request()->query('contributions') ? 'active' : ''}}">Tous</a>
-                <a href="{{ route('users.index', ['contributions' => true]) }}" class="btn mr-3 btn-sm mb-3 mb-sm-0 {{ request()->query('contributions') == true ? 'active' : ''}}">Contributions</a>
+                <a
+                    href="{{ route('users.index') }}"
+                    class="btn mr-3 btn-sm mb-3 {{ request()->query('recherche') == '' && !request()->query('contributions') ? 'active' : ''}}"
+                >
+                    Tous
+                </a>
+                <a
+                    href="{{ route('users.index', ['contributions' => true]) }}"
+                    class="btn mr-3 btn-sm mb-3 {{ request()->query('contributions') == true ? 'active' : ''}}"
+                >
+                    Contributions
+                </a>
             </div>
             <div>
                 <form action="{{ route('users.index') }}" method="GET" class="d-flex
-                align-items-center py-10">
+                align-items-center py-10 mb-3">
                     @component('components.inputs.recherche', [
                         'name' => 'recherche',
                         'placeholder' => 'Votre recherche...'
@@ -33,7 +43,7 @@
         <div class="mt-3">
             <div class="row">
                 @forelse ($users as $user)
-                    <div class="col col-12 col-sm-6 col-lg-4 col-xl-3 mb-5">
+                    <div class="col col-12 col-sm-6 col-xl-4 mb-5">
                         <div class="test-card bg-white mx-0 shadow-lg rounded p-4">
 
                             <div class="">

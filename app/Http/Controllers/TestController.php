@@ -23,6 +23,9 @@ class TestController extends Controller
             ->when($request->has('probleme'), function ($query) {
                 $query->where('probleme_id', request()->probleme);
             })
+            ->when($request->has('en_attente'), function ($query) {
+                $query->where('est_approuve', !request()->en_attente);
+            })
             ->when($request->has('recherche'), function ($query) {
                 $query->where('nom', 'LIKE', '%'.request()->recherche.'%')
                 ->orWhereHas('user', function ($query) {
@@ -31,7 +34,9 @@ class TestController extends Controller
             })
             ->paginate(6);
 
-        return view('tests.index', compact('tests'));
+        $problemes = Probleme::pluck('nom', 'id');
+
+        return view('tests.index', compact('tests', 'problemes'));
     }
 
     /**
@@ -41,7 +46,11 @@ class TestController extends Controller
      */
     public function create()
     {
-        $problemes = Probleme::pluck('nom', 'id');
+        $problemes = collect(Probleme::pluck('nom', 'id'))
+            ->map(function ($nom, $id) {
+                return 'Problème '. $id .': '. $nom;
+            })
+            ->toArray();
 
         return view('tests.create', compact('problemes'));
     }
@@ -89,7 +98,11 @@ class TestController extends Controller
             ->route('tests.index');
         }
 
-        $problemes = Probleme::pluck('nom', 'id');
+        $problemes = collect(Probleme::pluck('nom', 'id'))
+        ->map(function ($nom, $id) {
+            return 'Problème '. $id .': '. $nom;
+        })
+        ->toArray();
 
         return view('tests.edit', compact('test', 'problemes'));
     }

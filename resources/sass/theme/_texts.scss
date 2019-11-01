@@ -94,3 +94,7 @@ span.tests-count {
     font-weight: 900;
     color: lighten(black, 40%);
 }
+
+.user-name {
+    word-break: break-all;
+}

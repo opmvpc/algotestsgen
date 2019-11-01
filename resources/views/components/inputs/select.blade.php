@@ -9,7 +9,7 @@
         @foreach ($options as $id => $text)
             <option
                 value="{{ $id }}"
-                {{ $valeur === $id ? 'selected' : '' }}
+                {{ $valeur == $id ? 'selected' : '' }}
             >
                 {{ $text }}
             </option>

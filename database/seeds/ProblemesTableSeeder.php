@@ -13,15 +13,15 @@ class ProblemesTableSeeder extends Seeder
     public function run()
     {
         Probleme::create([
-            'nom' => 'Problème 1 : Diviser pour régner',
+            'nom' => 'Diviser pour régner',
         ]);
 
         Probleme::create([
-            'nom' => 'Problème 2 : Progra dynamique',
+            'nom' => 'Progra dynamique',
         ]);
 
         Probleme::create([
-            'nom' => 'Problème 3: Algo glouton',
+            'nom' => 'Algo glouton',
         ]);
     }
 }
