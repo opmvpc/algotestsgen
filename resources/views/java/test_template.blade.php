@@ -43,7 +43,7 @@ public class Algo2Problem{{ $key }}Test {
     @Test
     public void test_{{ $index+1 }}_problem_{{ $test->probleme->id }}_{{ $test->resultat != 'null' ? 'ok' : 'fail' }}_{{ str_replace('-', '_', Str::slug($test->nom)) }}() throws Exception {
 
-        String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ $test->nom }}.txt";
+        String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ Str::slug($test->nom) }}.txt";
 
         String[] result = Main.problem_{{ $test->probleme->id }}(getFileText(input));
     @if ($test->resultat != 'null')
