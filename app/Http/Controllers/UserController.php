@@ -25,7 +25,8 @@ class UserController extends Controller
             ->when($request->has('recherche'), function ($query) {
                 $query->where('name', 'LIKE', '%' . request()->recherche . '%');
             })
-            ->paginate(20);
+            ->paginate(12)
+            ->appends($request->query());
 
         return view('users.index', compact('users'));
     }

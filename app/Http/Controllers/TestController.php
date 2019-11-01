@@ -32,7 +32,8 @@ class TestController extends Controller
                     $query->where('name', 'LIKE', '%'.request()->recherche.'%');
                 });
             })
-            ->paginate(6);
+            ->paginate(6)
+            ->appends($request->query());
 
         $problemes = Probleme::pluck('nom', 'id');
 
