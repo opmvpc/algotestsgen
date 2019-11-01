@@ -24,12 +24,12 @@ class TestRequest extends FormRequest
      */
     public function rules()
     {
-        $uniqueRule = Rule::unique('tests', 'nom');
+        // $uniqueRule = Rule::unique('tests', 'nom');
 
-        if (request()->is('tests/*')) {
-            $fragments = explode('/', url()->current());
-            $uniqueRule->ignore($fragments[count($fragments) - 1]);
-        }
+        // if (request()->is('tests/*')) {
+        //     $fragments = explode('/', url()->current());
+        //     $uniqueRule->ignore($fragments[count($fragments) - 1]);
+        // }
 
         return [
             'probleme_id' => 'required|int',
@@ -37,14 +37,14 @@ class TestRequest extends FormRequest
                 'required',
                 'string',
                 'max:100',
-                $uniqueRule,
+                // $uniqueRule,
             ],
             'resultat' => [
                 'required',
                 'max:100',
-                'regex:/^(null|\{(\s*(\"\d+\"|\"\w+\")\s*\,?\s*)*\})$/i',
+                'regex:/^(null|\{(\s*(\"\-?\d+\"|\"\w+\")\s*\,?\s*)*\})$/i',
             ],
-            'body' => 'required|string|max:500',
+            'body' => 'nullable|string|max:500',
         ];
     }
 }

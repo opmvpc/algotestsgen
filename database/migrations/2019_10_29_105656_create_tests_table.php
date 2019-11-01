@@ -17,7 +17,7 @@ class CreateTestsTable extends Migration
             $table->bigIncrements('id');
             $table->string('nom');
             $table->string('resultat')->nullable();
-            $table->text('body');
+            $table->text('body')->nullable();
             $table->boolean('est_approuve')->default(false);
             $table->integer('user_id')->nullable();
             $table->integer('probleme_id')->nullable();
