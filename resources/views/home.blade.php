@@ -3,7 +3,7 @@
 @section('content')
     @component('components.panel', [
         'title' => 'Bienvenue '. request()->user()->name .',',
-        'icon' => 'ios-home',
+        'icon' => 'home',
     ])
         <h3>Récupérer la suite de tests</h3>
         <p>
@@ -34,6 +34,6 @@
             <br>
             Si vous découvrez un bug 😱, ouvrez un ticket sur le GitHub du projet svp.
         </p>
-        <a href="https://github.com/opmvpc/algotestsgen" target="_blank" class="btn btn-primary">GitHub du projet</a>
+        <a href="https://github.com/opmvpc/algotestsgen" target="_blank" class="btn btn-primary">GitHub du projet @svg('icon-github', ['class' => 'icon github-logo'])</a>
     @endcomponent
 @endsection

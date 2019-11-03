@@ -3,7 +3,7 @@
 @section('content')
     @component('components.panel', [
         'title' => 'Modifier un test',
-        'icon' => 'ios-apps',
+        'icon' => 'monitor',
     ])
 
         <form action="{{ route('tests.update', $test) }}" method="POST">

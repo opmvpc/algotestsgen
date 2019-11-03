@@ -6,7 +6,7 @@
 
         <div class="d-flex justify-content-between">
             <h2>
-                <ion-icon name="ios-people"></ion-icon>
+                @svg('icon-user-group')
                 {{ $users->toArray()['total'] }} Utilisateurs
             </h2>
         </div>

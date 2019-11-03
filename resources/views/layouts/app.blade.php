@@ -38,10 +38,9 @@
         window.error = "{{ $errors->first() }}";
     </script>
 
-    <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
-
-    <script src="{{ asset('js/app.js') }}"></script>
-    @stack('scripts')
+<script src="{{ asset('js/app.js') }}"></script>
+@stack('scripts')
 
 </body>
+{{-- GitHub icon made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a> --}}
 </html>

@@ -6,7 +6,7 @@
 
         <div class="d-flex justify-content-between">
             <h2>
-                <ion-icon name="ios-apps"></ion-icon>
+                    @svg('icon-monitor', [])
                 {{ $tests->toArray()['total'] }} Tests
             </h2>
 

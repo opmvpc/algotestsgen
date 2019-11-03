@@ -3,7 +3,7 @@
 @section('content')
     @component('components.panel', [
         'title' => 'Proposer un test',
-        'icon' => 'ios-apps',
+        'icon' => 'monitor',
     ])
 
         <form action="{{ route('tests.store') }}" method="POST">

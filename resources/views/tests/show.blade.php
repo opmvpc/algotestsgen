@@ -3,7 +3,7 @@
 @section('content')
     @component('components.panel', [
         'title' => 'Commenter',
-        'icon' => 'ios-apps',
+        'icon' => 'monitor',
     ])
 
         <div class="d-flex justify-content-between">

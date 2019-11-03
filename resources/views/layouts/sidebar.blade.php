@@ -8,7 +8,7 @@
             @component('components.buttons.navlink', [
                 'route' => route('home'),
                 'regex' => '/',
-                'icon' => 'ios-log-in',
+                'icon' => 'lock-open',
             ])
                 Connexion
             @endcomponent
@@ -18,7 +18,7 @@
             @component('components.buttons.navlink', [
                 'route' => route('home'),
                 'regex' => 'home',
-                'icon' => 'ios-home',
+                'icon' => 'home',
             ])
                 Accueil
             @endcomponent
@@ -26,7 +26,7 @@
             @component('components.buttons.navlink', [
                 'route' => route('tests.index'),
                 'regex' => 'tests*',
-                'icon' => 'ios-apps',
+                'icon' => 'monitor',
             ])
                 Tests
             @endcomponent
@@ -34,7 +34,7 @@
             @component('components.buttons.navlink', [
                 'route' => route('users.index'),
                 'regex' => 'users*',
-                'icon' => 'ios-people',
+                'icon' => 'user-group',
             ])
                 Utilisateurs
             @endcomponent
@@ -43,7 +43,7 @@
                 @component('components.buttons.navlink', [
                     'route' => route('admin.index'),
                     'regex' => 'admin*',
-                    'icon' => 'ios-cog',
+                    'icon' => 'cog',
                 ])
                     Réglages
                 @endcomponent
@@ -53,7 +53,7 @@
         @component('components.buttons.navlink', [
             'route' => route('faq'),
             'regex' => 'comment-ca-marche',
-            'icon' => 'ios-help-circle',
+            'icon' => 'help',
         ])
             Comment ça marche?
         @endcomponent

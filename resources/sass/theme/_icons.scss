@@ -1,0 +1,39 @@
+
+/* purgecss start ignore */.icon {
+    height: 1.75rem;
+}
+
+h2 .icon {
+    height: 1.75rem;
+    position: relative;
+    bottom: 3px;
+}
+
+.badge > .icon {
+    height: 1rem;
+}
+
+.badge.badge-warning > .icon > .secondary {
+    fill: $orange;
+}
+
+#menu-toggle > .icon .secondary {
+    fill: lighten($blue, 30%);
+}
+
+.icon, .icon .primary {
+    fill: lighten($blue, 30%);
+}
+
+.icon .secondary {
+    fill: lighten($blue, 15%);
+}
+.icon.github-logo {
+    height: 1.5rem;
+    width: 1.5rem;
+    position: relative;
+    bottom: 1px;
+    left: 2px;
+}
+
+/* purgecss end ignore */

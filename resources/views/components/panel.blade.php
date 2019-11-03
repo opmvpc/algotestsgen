@@ -1,7 +1,9 @@
 <div class="panel {{ isset($class) ? $class : '' }}">
     @isset($title)
         <h2>
-            {!! isset($icon) ? '<ion-icon name="'.$icon.'"></ion-icon>' : '' !!}
+            @if (isset($icon))
+                @svg('icon-' .$icon, [])
+            @endif
             {{ $title }}
         </h2>
     @endisset

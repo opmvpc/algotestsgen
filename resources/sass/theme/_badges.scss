@@ -1,0 +1,9 @@
+span.badge.badge-success {
+    background-color: lighten($blue, 30%);
+    color: $blue;
+}
+
+span.badge.badge-warning {
+    background-color: lighten($yellow, 20%);
+    color: $orange;
+}

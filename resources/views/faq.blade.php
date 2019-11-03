@@ -3,7 +3,7 @@
 @section('content')
     @component('components.panel', [
         'title' => 'Comment ça marche?',
-        'icon' => 'ios-help-circle',
+        'icon' => 'help',
     ])
 
         <div class="row">

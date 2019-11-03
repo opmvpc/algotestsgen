@@ -3,7 +3,7 @@
 @section('content')
     @component('components.panel', [
         'title' => 'Réglages',
-        'icon' => 'ios-cog',
+        'icon' => 'cog',
     ])
 
         <h3>Génération de la suite de tests</h3>

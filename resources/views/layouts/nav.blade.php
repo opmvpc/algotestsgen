@@ -2,7 +2,7 @@
 
 
     <button class="btn btn-primary" id="menu-toggle">
-        <ion-icon name="menu"></ion-icon>
+            @svg('icon-menu', [])
     </button>
 
     <span class="brand mr-2 mr-sm-0">
@@ -11,7 +11,7 @@
 
     @auth
         <button
-            class="btn-more btn btn-light d-lg-none"
+            class="btn btn-link d-lg-none"
             type="button"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -19,7 +19,7 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
         >
-            <ion-icon name="more"></ion-icon>
+            @svg('icon-dots-vertical', [])
         </button>
     @endauth
 

@@ -12,7 +12,7 @@
                 <h3 class="mb-4">Accéder à l'application</h3>
                 <a class="btn btn-primary btn-xl" href="{{route('github.login')}}">
                     Connexion avec GitHub
-                    <ion-icon name="logo-github"></ion-icon>
+                    @svg('icon-github', ['class' => 'icon github-logo'])
                 </a>
             </div>
 
