@@ -64,7 +64,7 @@ public class Algo2Problem{{ $key }}Test {
 
         String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ Str::slug($test->nom) }}.txt";
 
-        String[] result = Main.problem_{{ $test->probleme->id }}(getFileText(input));
+        String[] result = Main.problem_{{ $test->probleme->id }}_naive(getFileText(input));
     @if ($test->resultat != 'null')
     String[] s_result = {!! $test->resultat !!};
 
