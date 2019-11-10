@@ -27,12 +27,12 @@ Route::resource('tests', 'TestController')->middleware(['auth', 'ban']);
 
 
 // Admin
-Route::get('approuver/{test}', 'ApprouverTestController@approuver')->name('approuver')->middleware(['admin', 'ban']);
+Route::post('approuver/{test}', 'ApprouverTestController@approuver')->name('approuver')->middleware(['admin', 'ban']);
 
 Route::get('admin', 'AdminController@index')->name('admin.index')->middleware(['admin', 'ban']);
 Route::get('admin/generer', 'AdminController@genererCode')->name('admin.generer')->middleware(['admin', 'ban']);
 
 Route::get('users', 'UserController@index')->name('users.index')->middleware(['auth', 'ban']);
-Route::get('users/{user}/toggle-role', 'UserController@toggleAdmin')->name('users.admin')->middleware(['admin', 'ban']);
-Route::get('users/{user}/bannir', 'UserController@toggleBannir')->name('users.bannir')->middleware(['admin', 'ban']);
+Route::post('users/{user}/toggle-role', 'UserController@toggleAdmin')->name('users.admin')->middleware(['admin', 'ban']);
+Route::post('users/{user}/bannir', 'UserController@toggleBannir')->name('users.bannir')->middleware(['admin', 'ban']);
 

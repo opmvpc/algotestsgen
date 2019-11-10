@@ -36,4 +36,10 @@
         </p>
         <a href="https://github.com/opmvpc/algotestsgen" target="_blank" class="btn btn-primary">GitHub du projet @svg('icon-github', ['class' => 'icon github-logo'])</a>
     @endcomponent
+
+    <div class="d-flex flex-column mt-5">
+        <h3 class="ml-md-5 mb-4">Aide et discutions générales:</h3>
+        @component('components.disqus')
+        @endcomponent
+    </div>
 @endsection

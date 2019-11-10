@@ -41,12 +41,18 @@
             ])
             @endcomponent
 
+            <div class="row ml-0">
+                @component('components.buttons.submit')
+                @endcomponent
+                </form>
 
-            {{-- <textarea name="body" id="body" rows="10" class="w-100 rounded">{!!$test->body!!}</textarea> --}}
+                @component('components.buttons.approuver', [
+                    'test' => $test,
+                    ])
+                @endcomponent
+            </div>
 
-            @component('components.buttons.submit')
-            @endcomponent
-        </form>
+
 
     @endcomponent
 @endsection

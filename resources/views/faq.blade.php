@@ -10,14 +10,17 @@
             <div class="col col-md-6 mb-4 mb-lg-0">
                 <h3>Workflow</h3>
                 <ol>
+                    <li>Connectez-vous avec votre compte GitHub (pratique et sécurisé)</li>
                     <li>Proposez des tests</li>
                     <li>Commentez, proposez des corrections aux tests</li>
                     <li>Les tests sont approuvés par les admins</li>
                     <li>Lorsqu'un test est approuvé, le zip à télécharger est re-généré</li>
-                    <li>Remplacez le dossier <code>1920_IHDCB331_GXX/src/test/</code> de votre projet par celui contenu dans le zip</li>
+                    <li>Téléchargez et décompressez le zip de la page d'accueil</li>
+                    <li>Supprimez le dossier <code>1920_IHDCB331_GXX/src/test/</code> de votre projet</li>
+                    <li>Collez le dossier que vous avez décompressé à la place du dossier que vous venez de supprimer</li>
                     <li>Lancez les tests</li>
                     <li>...</li>
-                    <li>Profit!</li>
+                    <li>Profit! 💰💰💰</li>
                 </ol>
             </div>
             <div class="col-xs-md col-lg-6 mb-4 mb-lg-0">
@@ -28,7 +31,7 @@
                     <li>Les classes de test Java sont créées</li>
                     <li>Les methodes de test JUnit sont créées</li>
                 </ol>
-                <span class="text-muted">(Ex: public void test_1_problem_1_naive_fail_fichier_vide())</span>
+                <span class="text-muted">(Ex: public void problem_2_test_3_naive_fail_fichier_vide())</span>
             </div>
         </div>
 

@@ -23,52 +23,30 @@
             Proposé par <b>{{ $test->user->name }}</b>
         </div>
 
-        @component('components.inputs.textarea', [
-            'name' => 'Fichier',
-            'rows' => 10,
-            'value' => $test->body,
-        ])
+        @component('components.code', ['code' => $test->body])
         @endcomponent
 
-        @component('components.inputs.text', [
-            'name' => 'Résultat',
-        ])
-            {{ $test->resultat }}
+        @component('components.resultat', ['code' => $test->resultat])
         @endcomponent
 
+        <div class="row ml-0">
+            @component('components.buttons.approuver', [
+                'test' => $test,
+                ])
+            @endcomponent
 
-        @if (Gate::allows('access-admin', $test))
-        <a href="{{ route('approuver', $test) }}" class="btn {{$test->est_approuve ? 'btn-danger' : 'btn-success'}} mr-3">{{$test->est_approuve ? 'Désapprouver' : 'Approuver'}}</a>
-        @endif
+            @component('components.buttons.modifier', [
+                'test' => $test,
+                ])
+            @endcomponent
+        </div>
 
     @endcomponent
 
-    <div class="m-5">
-        <div id="disqus_thread"></div>
+    <div class="d-flex flex-column mt-5">
+        <h3 class="ml-md-5 mb-4">Commentaires pour ce test:</h3>
+        @component('components.disqus')
+        @endcomponent
     </div>
 
-    <script>
-
-        /**
-        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-        /*
-        var disqus_config = function () {
-        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-        */
-        (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://algo-choboai.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-@endsection
-
-@section('scripts')
-    <script id="dsq-count-scr" src="//algo-choboai.disqus.com/count.js" async></script>
 @endsection

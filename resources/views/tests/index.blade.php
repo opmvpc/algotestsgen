@@ -74,27 +74,18 @@
                                 @endcomponent
                             </div>
 
-                            @component('components.inputs.textarea', [
-                                'name' => 'fichier',
-                                'id' => 'fichier-'.$loop->iteration,
-                                'rows' => 10,
-                                'value' => $test->body,
-                                'disabled' => true,
-                            ])
+                            @component('components.code', ['code' => $test->body])
                             @endcomponent
 
-                            @component('components.inputs.text', [
-                                'name' => 'resultat',
-                                'id' => 'resultat-'.$loop->iteration,
-                                'label' => 'Résultat',
-                            ])
-                                {{ $test->resultat }}
+                            @component('components.resultat', ['code' => $test->resultat])
                             @endcomponent
 
                             <div class="actions text-right">
-                                @if (Gate::allows('update-test', $test))
-                                <a href="{{ route('tests.edit', $test) }}" class="btn-link mr-2">Modifier</a>
-                                @endif
+                                @component('components.buttons.modifier', [
+                                    'test' => $test,
+                                ])
+
+                                @endcomponent
                                 <a href="{{ route('tests.show', $test) }}" class="btn-link">Commenter</a>
                             </div>
                         </div>

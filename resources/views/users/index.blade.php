@@ -60,9 +60,18 @@
 
                             @if (Gate::allows('access-admin'))
                                 <hr class="mb-3 mt-4">
-                                <div class="actions text-right">
-                                    <a href="{{ route('users.admin', $user) }}" class="btn-link mr-2">{{ $user->est_admin ? 'Administrateur' : 'Utilisateur'}}</a>
-                                    <a href="{{ route('users.bannir', $user) }}" class="btn-link mr-2 text-danger">{{ $user->est_banni ? 'Débannir' : 'Bannir'}}</a>
+                                <div class="row ml-0">
+
+                                    <form action="{{ route('users.admin', $user) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-link mr-2">{{ $user->est_admin ? 'Administrateur' : 'Utilisateur'}}</button>
+                                    </form>
+
+                                    <form action="{{ route('users.bannir', $user) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-link mr-2 text-danger">{{ $user->est_banni ? 'Débannir' : 'Bannir'}}</button>
+                                    </form>
+
                                 </div>
                             @endif
                         </div>

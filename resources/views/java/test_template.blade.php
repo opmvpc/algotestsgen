@@ -41,7 +41,7 @@ public class Algo2Problem{{ $key }}Test {
     | Test proposé par {{ $test->user->name }}
     */
     @Test
-    public void test_{{ $index+1 }}_problem_{{ $test->probleme->id }}_{{ $test->resultat != 'null' ? 'ok' : 'fail' }}_{{ str_replace('-', '_', Str::slug($test->nom)) }}() throws Exception {
+    public void problem_{{ $test->probleme->id }}_test_{{ $index+1 }}_{{ $test->resultat != 'null' ? 'ok' : 'fail' }}_{{ str_replace('-', '_', Str::slug($test->nom)) }}() throws Exception {
 
         String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ Str::slug($test->nom) }}.txt";
 
@@ -60,7 +60,7 @@ public class Algo2Problem{{ $key }}Test {
     | Test proposé par {{ $test->user->name }}
     */
     @Test
-    public void test_{{ $index+1 }}_problem_{{ $test->probleme->id }}_naive_{{ $test->resultat != 'null' ? 'ok' : 'fail' }}_{{ str_replace('-', '_', Str::slug($test->nom)) }}() throws Exception {
+    public void problem_{{ $test->probleme->id }}_test_{{ $index+1 }}_naive_{{ $test->resultat != 'null' ? 'ok' : 'fail' }}_{{ str_replace('-', '_', Str::slug($test->nom)) }}() throws Exception {
 
         String input = "src/test/resources/problem{{ $test->probleme->id }}/{{ Str::slug($test->nom) }}.txt";
 

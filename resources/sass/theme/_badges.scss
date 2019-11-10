@@ -1,3 +1,7 @@
+span.badge {
+    padding-right: 0.65rem;
+}
+
 span.badge.badge-success {
     background-color: lighten($blue, 30%);
     color: $blue;
