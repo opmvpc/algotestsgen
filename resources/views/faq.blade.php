@@ -31,7 +31,12 @@
                     <li>Les classes de test Java sont créées</li>
                     <li>Les methodes de test JUnit sont créées</li>
                 </ol>
-                <span class="text-muted">(Ex: public void problem_2_test_3_naive_fail_fichier_vide())</span>
+                Exemple de méthode de test généré:
+                <br>
+                <span class="text-muted">public void problem_2_test_3_naive_fail_fichier_vide()</span>
+                <br>
+                et<br>
+                <span class="text-muted">public void problem_2_test_3_fail_fichier_vide()</span>
             </div>
         </div>
 
