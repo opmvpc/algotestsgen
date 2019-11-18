@@ -44,7 +44,7 @@ class TestRequest extends FormRequest
                 'max:100',
                 'regex:/^(null|\{(\s*(\"\-?\d+\"|\"\w+\")\s*\,?\s*)*\})$/i',
             ],
-            'body' => 'nullable|string|max:500',
+            'body' => 'nullable|string|max:10000',
         ];
     }
 }
