@@ -15,12 +15,9 @@ class SolverController extends Controller
 
     public function solve(SolverRequest $request)
     {
-        $probleme = Probleme::find($request->get('probleme'))->nom;
-        $probleme = Str::slug($probleme);
+        $probleme = $request->get('probleme');
         $input = $request->get('input');
-        // dump($input);
         $result = (new Solver($probleme, $input))->solve();
-        // dump($result);
 
         return response()->json(['result' => $result]);
     }

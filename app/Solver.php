@@ -20,10 +20,10 @@ class Solver
 
     public function solve(): ?string
     {
-        $fileName = "solver/probleme.txt";
-        Storage::put($fileName, $this->input);
+        $fileName = 'probleme'. Str::random() .'.txt';
+        Storage::put('solver/'.$fileName, $this->input);
 
-        $commande = 'java -jar algo2-0.0.1-SNAPSHOT-jar-with-dependencies.jar "'. $this->probleme .'" "probleme.txt"';
+        $commande = 'java -jar algo2-0.0.1-SNAPSHOT-jar-with-dependencies.jar "'. $this->probleme .'" "'. $fileName .'"';
         $appPath = storage_path('app/solver');
 
         $process = Process::fromShellCommandline($commande, $appPath);
@@ -35,12 +35,19 @@ class Solver
             }
         });
 
+        $this->formatResultat();
+
+        Storage::delete('solver/'.$fileName);
+
+        return $this->resultat;
+    }
+
+    public function formatResultat(): void
+    {
         if (! Str::contains($this->resultat, 'Error')) {
             $this->resultat = str_replace('[', '{', $this->resultat);
             $this->resultat = str_replace(']', '}', $this->resultat);
             $this->resultat = preg_replace('/(\-?\d+)/i', '"$1"', $this->resultat);
         }
-
-        return $this->resultat;
     }
 }
