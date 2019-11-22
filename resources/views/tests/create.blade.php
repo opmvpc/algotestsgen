@@ -30,10 +30,12 @@
             ])
             @endcomponent
 
+            <pre id="resultat"></pre>
+
             @component('components.inputs.textarea', [
                 'name' => 'body',
                 'label' => 'Fichier',
-                'rows' => 20,
+                'rows' => 10,
             ])
             @endcomponent
 

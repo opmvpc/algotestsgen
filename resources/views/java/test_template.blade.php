@@ -49,7 +49,7 @@ public class Algo2Problem{{ $key }}Test {
     @if ($test->resultat != 'null')
     String[] s_result = {!! $test->resultat !!};
 
-    assertArrayEquals(s_result, result);
+        assertArrayEquals(s_result, result);
 @else
 
         assertNull(result);
@@ -68,7 +68,7 @@ public class Algo2Problem{{ $key }}Test {
     @if ($test->resultat != 'null')
     String[] s_result = {!! $test->resultat !!};
 
-    assertArrayEquals(s_result, result);
+        assertArrayEquals(s_result, result);
 @else
 
         assertNull(result);

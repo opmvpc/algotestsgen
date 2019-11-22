@@ -10,8 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::get('/', 'Auth\GithubLoginController@index')->name('login');
 Route::post('logout', 'Auth\LogoutController@logoutUser')->name('logout');
 Route::get('login/github', 'Auth\GithubLoginController@redirectToProvider')->name('github.login');
@@ -36,3 +34,4 @@ Route::get('users', 'UserController@index')->name('users.index')->middleware(['a
 Route::post('users/{user}/toggle-role', 'UserController@toggleAdmin')->name('users.admin')->middleware(['admin', 'ban']);
 Route::post('users/{user}/bannir', 'UserController@toggleBannir')->name('users.bannir')->middleware(['admin', 'ban']);
 
+Route::post('solver', 'SolverController@solve')->name('solver');
