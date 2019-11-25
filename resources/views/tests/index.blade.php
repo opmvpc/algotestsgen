@@ -22,14 +22,14 @@
                     Tous
                 </a>
                 <a
-                    href="{{ route('tests.index', ['en_attente' => true]) }}"
+                    href="{{ route('tests.index', array_merge(['en_attente' => true], request()->only('recherche')) ) }}"
                     class="btn mr-3 btn-sm mb-3 {{ request()->query('en_attente') == true ? 'active' : ''}}"
                 >
                     En attente
                 </a>
                 @foreach ($problemes as $index => $probleme)
                     <a
-                        href="{{ route('tests.index', ['probleme' => $index]) }}"
+                        href="{{ route('tests.index', array_merge(['probleme' => $index], request()->only('recherche')) ) }}"
                         class="btn mr-3 btn-sm mb-3 {{ request()->query('probleme') == $index ? 'active' : ''}}"
                     >
                         {{ $probleme }}
@@ -39,6 +39,11 @@
             <div>
                 <form action="{{ route('tests.index') }}" method="GET" class="d-flex
                 align-items-center py-10 mb-3">
+
+                    @if (request()->probleme)
+                        <input type="hidden" name="probleme" value="{{ request()->probleme }}">
+                    @endif
+
                     @component('components.inputs.recherche', [
                         'name' => 'recherche',
                         'placeholder' => 'Votre recherche...'
@@ -54,9 +59,9 @@
             <div class="row m-0">
                 @forelse ($tests as $test)
                     <div class="col col-12 col-md-6 col-lg-6 col-xl-4 mb-4 mb-lg-5 px-0 px-md-2">
-                        <div class="test-card bg-white mx-0 shadow-lg rounded p-4">
+                        <div class="test-card bg-white mx-0 shadow-lg rounded p-4 d-flex flex-column h-100">
 
-                            <div class="pb-3">
+                            <div class="test-card-head pb-3">
                                 <h4 class="pb-2">
                                     {{ $test->nom }}
                                 </h4>
@@ -88,6 +93,7 @@
                                 @endcomponent
                                 <a href="{{ route('tests.show', $test) }}" class="btn-link">Commenter</a>
                             </div>
+
                         </div>
                     </div>
                 @empty

@@ -16,7 +16,7 @@ class ApprouverTestController extends Controller
         $estOk = Generateur::makeZip();
 
         if ($estOk) {
-            return redirect()->back()->withOk('Les fichiers ont été générés');
+            return redirect()->route('tests.show', $test)->withOk('Les fichiers ont été générés');
         }
 
         return redirect()->back()->withOk('Une erreur est survenue');
