@@ -23,6 +23,7 @@ public class Algo2Problem{{ $key }}Test {
     private String getFileText(String input) throws IOException {
         return new String(Files.readAllBytes(Paths.get(input)));
     }
+
     @Rule
     public TemporaryFolder testFolder = new TemporaryFolder(); // Create a temporary folder for outputs deleted after tests
 
@@ -31,10 +32,9 @@ public class Algo2Problem{{ $key }}Test {
         @Override
         protected void starting(Description description) {
             LOG.info(String.format("Starting test: %s()...",
-                    description.getMethodName()));
+            description.getMethodName()));
         }
     };
-
 @foreach ($probleme as $index => $test)
 
     /*
@@ -74,7 +74,5 @@ public class Algo2Problem{{ $key }}Test {
         assertNull(result);
 @endif
     }
-
 @endforeach
-
 }
