@@ -4,14 +4,14 @@
 
     <div class="panel {{ isset($class) ? $class : '' }}">
 
-        <div class="d-flex justify-content-between">
-            <h2>
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 class="mb-0 d-inline-block">
                     @svg('icon-monitor', [])
                 {{ $tests->toArray()['total'] }} Tests
             </h2>
 
             @guest
-                <div class="alert alert-danger">
+                <div class="alert alert-danger mb-0">
                     Vous devez vous connecter pour proposer ou commenter un test!
                 </div>
             @endguest
