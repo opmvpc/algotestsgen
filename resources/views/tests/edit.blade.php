@@ -33,7 +33,7 @@
                 {{$test->resultat}}
             @endcomponent
 
-            <pre id="resultat"></pre>
+            <pre id="resultat">Chargement...</pre>
 
             @component('components.inputs.textarea', [
                 'name' => 'body',
@@ -52,6 +52,15 @@
                     'test' => $test,
                     ])
                 @endcomponent
+
+                @if (Gate::allows('update-test', $test))
+                    <form action="{{ route('tests.destroy', $test) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-link text-danger mr-3" onclick="confirm('Attention! Voulez-vous vraiment supprimer ce test?') ? null : event.preventDefault()">Supprimer</button>
+                    </form>
+                @endif
             </div>
 
 

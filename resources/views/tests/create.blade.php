@@ -30,7 +30,7 @@
             ])
             @endcomponent
 
-            <pre id="resultat"></pre>
+            <pre id="resultat">Chargement...</pre>
 
             @component('components.inputs.textarea', [
                 'name' => 'body',

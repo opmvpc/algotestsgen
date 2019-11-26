@@ -144,6 +144,10 @@ class TestController extends Controller
      */
     public function destroy(Test $test)
     {
-        //
+        $test->delete();
+
+        return redirect()
+            ->route('tests.index')
+            ->withOk('Le test a été supprimé');
     }
 }
