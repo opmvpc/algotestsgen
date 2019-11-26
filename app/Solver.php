@@ -22,6 +22,10 @@ class Solver
 
     public function solve(): ?string
     {
+        if (! static::solverPathExists()) {
+            return 'Oups! Le solver n\'est pas configuré correctement';
+        }
+
         Storage::put('solver/'.$this->fileName, $this->input);
         $this->execute();
         $this->formatResultat();
@@ -41,7 +45,7 @@ class Solver
 
     public function execute(): void
     {
-        $commande = 'java -jar algo2-0.0.1-SNAPSHOT-jar-with-dependencies.jar "'. $this->probleme .'" "'. $this->fileName .'"';
+        $commande = 'java -jar "'. config('solver.fileName') .'" "'. $this->probleme .'" "'. $this->fileName .'"';
         $appPath = storage_path('app/solver');
 
         $process = Process::fromShellCommandline($commande, $appPath);
@@ -57,5 +61,10 @@ class Solver
     public function getFileName(): string
     {
         return 'probleme'. Str::random() .'.txt';
+    }
+
+    public static function solverPathExists(): bool
+    {
+        return Storage::exists('solver/'. config('solver.fileName'));
     }
 }
