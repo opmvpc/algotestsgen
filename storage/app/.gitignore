@@ -3,3 +3,5 @@
 !.gitignore
 !generateur/
 !generateur/log4j2-test.xml
+!solver/
+!solver/algo2-0.0.1-SNAPSHOT-jar-with-dependencies.jar
