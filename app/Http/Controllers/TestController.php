@@ -11,6 +11,10 @@ use App\Http\Requests\TestIndexRequest;
 
 class TestController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['auth', 'ban'])->except('index');
+    }
+
     /**
      * Display a listing of the resource.
      *

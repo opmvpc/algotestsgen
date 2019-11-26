@@ -26,30 +26,17 @@
 
             <div class="mb-5">
                 <h3 class="">Screenshots</h3>
-                <div class="row">
-                    <div class="col-sm-6 p-4">
-                        <a href="{{ asset('storage/img/algotesthome.png') }}" target="_blank">
-                            <img src="{{ asset('storage/img/algotesthome.png') }}" class="img-fluid shadow-lg rounded" alt="Responsive image">
-                        </a>
+                @foreach ( $screenshotsPaths->chunk(2) as $screenshots)
+                    <div class="row">
+                        @foreach ($screenshots as $screenshot)
+                            <div class="col-sm-6 p-4">
+                                <a href="{{ asset('storage/img/'.$screenshot) }}" target="_blank">
+                                    <img src="{{ asset('storage/img/'.$screenshot) }}" class="screenshot img-fluid shadow rounded" alt="Responsive image">
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="col-sm-6 p-4">
-                        <a href="{{ asset('storage/img/algotestproposer.png') }}" target="_blank">
-                            <img src="{{ asset('storage/img/algotestproposer.png') }}" class="img-fluid shadow-lg rounded" alt="Responsive image">
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 p-4">
-                        <a href="{{ asset('storage/img/algotestliste.png') }}" target="_blank">
-                            <img src="{{ asset('storage/img/algotestliste.png') }}" class="img-fluid shadow-lg rounded" alt="Responsive image">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 p-4">
-                        <a href="{{ asset('storage/img/algotestcommenter.png') }}" target="_blank">
-                            <img src="{{ asset('storage/img/algotestcommenter.png') }}" class="img-fluid shadow-lg rounded" alt="Responsive image">
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 

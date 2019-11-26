@@ -10,7 +10,7 @@ use App\Http\Requests\SolverRequest;
 class SolverController extends Controller
 {
     public function __construct() {
-
+        $this->middleware('auth');
     }
 
     public function solve(SolverRequest $request)

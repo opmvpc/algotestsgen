@@ -18,7 +18,14 @@ class GithubLoginController extends Controller
 
         $testCount = Test::stats();
 
-        return view('github.login', compact('testCount'));
+        $screenshotsPaths = collect([
+            'algotesthome.png',
+            'algotestproposer.png',
+            'algotestliste.png',
+            'algotestcommenter.png'
+        ]);
+
+        return view('github.login', compact('testCount', 'screenshotsPaths'));
     }
 
     /**

@@ -43,7 +43,7 @@
         <div class="row">
             <div class="p-4">
                 <a href="{{ asset('storage/img/idea.png') }}" target="_blank">
-                    <img src="{{ asset('storage/img/idea.png') }}" class="img-fluid shadow-lg rounded" alt="Responsive image">
+                    <img src="{{ asset('storage/img/idea.png') }}" class="screenshot img-fluid shadow rounded" alt="Responsive image">
                 </a>
             </div>
         </div>

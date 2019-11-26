@@ -21,8 +21,8 @@ Route::get('comment-ca-marche', 'HomeController@commentCaMarche')->name('faq');
 Route::get('home', 'HomeController@index')->name('home')->middleware(['auth', 'ban']);
 Route::get('home/dl', 'HomeController@downloadZip')->name('home.dl')->middleware(['auth', 'ban']);
 
-Route::resource('tests', 'TestController')->middleware(['auth', 'ban']);
-
+Route::resource('tests', 'TestController');
+Route::post('solver', 'SolverController@solve')->name('solver');
 
 // Admin
 Route::post('approuver/{test}', 'ApprouverTestController@approuver')->name('approuver')->middleware(['admin', 'ban']);
@@ -34,4 +34,3 @@ Route::get('users', 'UserController@index')->name('users.index')->middleware(['a
 Route::post('users/{user}/toggle-role', 'UserController@toggleAdmin')->name('users.admin')->middleware(['admin', 'ban']);
 Route::post('users/{user}/bannir', 'UserController@toggleBannir')->name('users.bannir')->middleware(['admin', 'ban']);
 
-Route::post('solver', 'SolverController@solve')->name('solver');

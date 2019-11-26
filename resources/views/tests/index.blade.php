@@ -10,7 +10,14 @@
                 {{ $tests->toArray()['total'] }} Tests
             </h2>
 
-            <a href="{{ request()->has('probleme') ? route('tests.create', request()->only('probleme') ) : route('tests.create') }}" class="btn btn-link text-right">Proposer un test</a>
+            @guest
+                <div class="alert alert-danger">
+                    Vous devez vous connecter pour proposer ou commenter un test!
+                </div>
+            @endguest
+            @auth
+                <a href="{{ request()->has('probleme') ? route('tests.create', request()->only('probleme') ) : route('tests.create') }}" class="btn btn-link text-right">Proposer un test</a>
+            @endauth
         </div>
 
         <div class="d-flex mt-4 justify-content-between flex-column flex-lg-row align-items-center">
@@ -91,7 +98,9 @@
                                 ])
 
                                 @endcomponent
-                                <a href="{{ route('tests.show', $test) }}" class="btn-link">Commenter</a>
+                                @auth
+                                    <a href="{{ route('tests.show', $test) }}" class="btn-link">Commenter</a>
+                                @endauth
                             </div>
 
                         </div>

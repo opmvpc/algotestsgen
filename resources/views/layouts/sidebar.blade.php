@@ -12,6 +12,14 @@
             ])
                 Connexion
             @endcomponent
+
+            @component('components.buttons.navlink', [
+                'route' => route('tests.index'),
+                'regex' => 'tests*',
+                'icon' => 'monitor',
+            ])
+                Tests
+            @endcomponent
         @endguest
 
         @auth
