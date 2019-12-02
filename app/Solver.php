@@ -56,7 +56,6 @@ class Solver
             } else {
                 $cache->push($buffer);
             }
-            $this->resultat = $buffer;
         });
 
         $this->resultat = $cache->reject( function ($item) {
