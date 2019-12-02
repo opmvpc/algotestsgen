@@ -50,12 +50,18 @@ class Solver
 
         $process = Process::fromShellCommandline($commande, $appPath);
         $process->start();
-        $process->wait(function ($type, $buffer) {
+        $cache = collect();
+        $process->wait(function ($type, $buffer) use ($cache) {
             if (Process::ERR === $type) {
             } else {
-                $this->resultat = $buffer;
+                $cache->push($buffer);
             }
+            $this->resultat = $buffer;
         });
+
+        $this->resultat = $cache->reject( function ($item) {
+            return $item == "\n";
+        })->join("\n\n");
     }
 
     public function getFileName(): string
