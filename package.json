@@ -27,5 +27,8 @@
     },
     "dependencies": {
         "toastr": "^2.1.4"
+    },
+    "overrides": {
+        "tar": "^7.5.4"
     }
 }
